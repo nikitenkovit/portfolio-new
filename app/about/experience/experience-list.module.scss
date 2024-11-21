@@ -1,0 +1,87 @@
+.item {
+	position: relative;
+	padding: 0 20px 0 60px;
+
+	&:not(:last-child) {
+		margin: 0 0 50px;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 20px;
+		height: 100%;
+		width: 1px;
+		background-color: $line-color;
+		z-index: -1;
+	}
+}
+
+.icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background-color: $primary-accent-color;
+	font-size: 16px;
+	color: $white-color;
+	border-radius: 50%;
+}
+
+.date {
+	@include font-face($secondary-font, 600);
+
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 19px;
+	padding: 1px 10px;
+	opacity: 0.8;
+	font-size: 12px;
+	line-height: 1.6;
+	color: $white-color;
+	text-transform: uppercase;
+	background-color: $dark-background-menu-color;
+	border-radius: 20px;
+}
+
+.title {
+	@include font-face($primary-font, 500);
+
+	margin-bottom: 10px;
+	font-size: 18px;
+	line-height: 1.6;
+	text-transform: uppercase;
+	color: $white-color;
+}
+
+.company {
+	@include font-face($secondary-font, 600);
+
+	position: relative;
+	padding-left: 20px;
+	opacity: 0.8;
+	font-size: 15px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 9px;
+		left: 3px;
+		width: 10px;
+		height: 2px;
+		background-color: $white-color;
+	}
+}
+
+.description {
+	@include font-face($secondary-font, 500);
+
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgb(238 238 238);
+}

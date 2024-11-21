@@ -1,0 +1,7 @@
+.container {
+	padding: 90px 25px 50px;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0 0 50px;
+	}
+}
