@@ -1,0 +1,35 @@
+.container {
+	max-width: 540px;
+	margin: 0 auto;
+
+	@media (min-width: $breakpoint-770) {
+		max-width: 720px;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		max-width: 1140px;
+	}
+}
+.title {
+	@include font-face($primary-font, 600);
+
+	font-size: 21px;
+	line-height: 1.6;
+	color: $white-color;
+	text-transform: uppercase;
+	text-align: center;
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 26px;
+	}
+}
+
+.wrapper {
+	display: grid;
+	gap: 50px;
+	padding-top: 48px;
+
+	@media (min-width: $breakpoint-770) {
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+}

@@ -24,9 +24,9 @@ export default function Home() {
 						<span className={styles.profession}>Web developer</span>
 					</h2>
 					<p className={styles.description}>
-						Я специализируюсь на создании чистых, удобных и доступных
-						интерфейсов. Считаю свою работу непрерывным образованием и всегда
-						стремлюсь к совершенствованию своих навыков.
+						Я программирую красивые вещи, и мне нравится то, что я делаю. Считаю
+						свою работу непрерывным образованием и всегда стремлюсь к
+						совершенствованию своих навыков.
 					</p>
 					<MainButtonWrapper iconName="FaArrowRight">
 						<Link href="/about">Обо мне</Link>

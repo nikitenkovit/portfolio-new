@@ -1,29 +1,30 @@
+import { Link } from '@/app/lib/types/links.type';
 import { IMenuItem } from '@/app/lib/types/menu.types';
 
 export const menuDataItems: IMenuItem[] = [
 	{
 		title: 'Домой',
-		link: '/',
+		link: Link.HOME,
 		icon: 'FaHome',
 	},
 	{
 		title: 'Oбо мне',
-		link: '/about',
+		link: Link.ABOUT,
 		icon: 'FaUser',
 	},
 	{
 		title: 'Портфолио',
-		link: '/portfolio',
+		link: Link.PORTFOLIO,
 		icon: 'FaBriefcase',
 	},
 	{
 		title: 'Контакты',
-		link: '/contacts',
+		link: Link.CONTACTS,
 		icon: 'FaEnvelopeOpen',
 	},
 	{
 		title: 'Блог',
-		link: '/blog',
+		link: Link.BLOG,
 		icon: 'FaComments',
 	},
 ];

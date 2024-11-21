@@ -1,6 +1,6 @@
 .wrapper {
 	width: 100%;
-	min-height: min-content;
+	min-height: 356px;
 	height: 100dvh;
 	padding: 0 25px;
 	display: flex;
@@ -8,6 +8,7 @@
 	justify-content: center;
 
 	@media (min-width: $breakpoint-tablet) {
+		min-height: 722px;
 		align-items: center;
 		width: 550px;
 		margin: 0 auto;

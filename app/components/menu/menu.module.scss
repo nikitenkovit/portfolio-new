@@ -6,7 +6,7 @@
 	height: 49px;
 	background-color: $dark-background-menu-color;
 	border-radius: 5px;
-	z-index: 2;
+	z-index: 4;
 	cursor: pointer;
 
 	&::before {
@@ -63,14 +63,14 @@
 .list {
 	@include main-transition();
 
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: -190%;
 	width: 100%;
 	height: 100dvh;
 	padding: 60px 0 0;
 	background-color: $dark-background-menu-color;
-	z-index: 1;
+	z-index: 3;
 
 	&.opened {
 		@media (max-width: 991px) {

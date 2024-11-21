@@ -1,3 +1,9 @@
+import { Header } from '../components';
+
 export default function About() {
-	return <h1>Портфолио</h1>;
+	return (
+		<main>
+			<Header />
+		</main>
+	);
 }
