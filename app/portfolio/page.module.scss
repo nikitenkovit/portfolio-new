@@ -1,0 +1,33 @@
+.container {
+	padding: 110px 25px 60px;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0 0 60px;
+	}
+}
+.list {
+	display: grid;
+	gap: 30px;
+
+	max-width: 540px;
+	margin: 0 auto;
+
+	@media (min-width: $breakpoint-tablet) {
+		grid-template-columns: 240px 240px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media (min-width: $breakpoint-770) {
+		grid-template-columns: 330px 330px;
+		max-width: 720px;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		max-width: 77.31vw;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (min-width: 1351px) {
+		max-width: 1140px;
+	}
+}

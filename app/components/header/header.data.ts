@@ -12,9 +12,9 @@ export const headerData = {
 		subtitle: 'резюме',
 	},
 	[Link.PORTFOLIO]: {
-		titlePart: 'моё',
-		titlePartColor: 'портфолио',
-		subtitle: 'работы',
+		titlePart: 'новые',
+		titlePartColor: 'работы',
+		subtitle: 'портфолио',
 	},
 	[Link.CONTACTS]: {
 		titlePart: 'связаться',
