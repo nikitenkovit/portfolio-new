@@ -1,5 +1,6 @@
 'use client';
 import { IMenuItem } from '@/app/lib/types/menu.types';
+import { getSegment } from '@/app/lib/utils';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -12,7 +13,7 @@ interface IProps {
 }
 
 export const MenuItem = ({ item, onClick }: IProps) => {
-	const pathname = usePathname();
+	const pathname = getSegment(usePathname());
 	const isActive = pathname === item.link;
 
 	return (

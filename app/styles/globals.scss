@@ -31,4 +31,10 @@ html {
 	text-decoration: none;
 	border: none;
 	overflow-x: hidden;
+
+	color: $white-color;
+
+	&:visited {
+		color: $white-color;
+	}
 }

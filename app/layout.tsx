@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 
+import { Header } from './components';
 import Menu from './components/menu/menu';
 import './styles/globals.scss';
 
@@ -36,6 +37,8 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={`${montserrat.variable} ${openSans.variable}`}>
+				<div id="modal-root" />
+				<Header />
 				<Menu />
 				{children}
 			</body>
