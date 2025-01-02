@@ -14,6 +14,7 @@
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 16px;
+	color: $primary-accent-color;
 
 	@media (min-width: $breakpoint-tablet) {
 		margin-bottom: 48px;
@@ -23,6 +24,10 @@
 .icon {
 	font-size: 96px;
 	color: $primary-accent-color;
+
+	svg {
+		fill: $primary-accent-color;
+	}
 }
 
 .name {

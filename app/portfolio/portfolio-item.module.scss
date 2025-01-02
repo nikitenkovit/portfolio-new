@@ -27,12 +27,36 @@
 }
 
 .caption {
-	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
 
-	@include font-face($secondary-font, 500);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
 
-	font-size: 16px;
+	width: 100%;
+	height: 100%;
+
+	background-color: $primary-accent-color;
+
+	@include font-face($primary-font, 500);
+
+	font-size: 18px;
 	line-height: 1.6;
+	text-transform: uppercase;
+}
+
+.technologies {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	font-size: 14px;
+	line-height: 1;
 }
 
 .image {

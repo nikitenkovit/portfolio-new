@@ -10,7 +10,7 @@ export const Header = () => {
 	const data = headerData[pathname] || {};
 	const { titlePart, titlePartColor, subtitle } = data;
 
-	if (!Object.keys(data).length) {
+	if (!titlePart) {
 		return null;
 	}
 

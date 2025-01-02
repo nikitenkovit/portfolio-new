@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Work } from '../lib/types/portfolio.type';
@@ -8,10 +11,30 @@ interface IProps {
 }
 
 export const PortfolioItem = ({ item }: IProps) => {
+	const slashMotion = {
+		rest: {
+			y: '-100%',
+			transition: {
+				duration: 0.3,
+			},
+		},
+		hover: {
+			y: '0',
+			transition: {
+				duration: 0.3,
+			},
+		},
+	};
+
 	return (
 		<li className={styles.container}>
 			<Link href={`/portfolio/works/${item.slug}`} className={styles.link}>
-				<figure className={styles.item}>
+				<motion.figure
+					className={styles.item}
+					initial="rest"
+					whileHover="hover"
+					animate="rest"
+				>
 					<Image
 						src={item.image}
 						fill
@@ -19,8 +42,15 @@ export const PortfolioItem = ({ item }: IProps) => {
 						className={styles.image}
 						quality={75}
 					/>
-					<figcaption>Слон на фоне заката</figcaption>
-				</figure>
+					<motion.figcaption className={styles.caption} variants={slashMotion}>
+						{item.title}
+						<div className={styles.technologies}>
+							{item.technologies?.map((technology) => (
+								<span key={`${item.title}-${technology}`}>{technology}</span>
+							))}
+						</div>
+					</motion.figcaption>
+				</motion.figure>
 			</Link>
 		</li>
 	);

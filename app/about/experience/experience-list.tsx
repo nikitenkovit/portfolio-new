@@ -1,4 +1,5 @@
 import { Icon } from '@/app/components';
+import uuid from 'react-uuid';
 import styles from './experience-list.module.scss';
 import { Experience } from './experience.type';
 
@@ -10,8 +11,10 @@ export const ExperienceList = ({ experience }: IProps) => {
 	return (
 		<ul>
 			{experience.map((item) => {
+				const id = uuid();
+
 				return (
-					<li className={styles.item}>
+					<li key={id} className={styles.item}>
 						<div className={styles.icon}>
 							<Icon name={item.icon} />
 						</div>
