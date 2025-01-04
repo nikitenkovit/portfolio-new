@@ -1,17 +1,20 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100dvh;
+}
+
 .wrapper {
 	width: 100%;
-	min-height: 356px;
-	height: 100dvh;
 	padding: 0 25px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 
 	@media (min-width: $breakpoint-tablet) {
-		min-height: 722px;
-		height: auto;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 
 		width: 550px;
 		margin: 0 auto;

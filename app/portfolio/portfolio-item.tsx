@@ -28,7 +28,7 @@ export const PortfolioItem = ({ item }: IProps) => {
 
 	return (
 		<li className={styles.container}>
-			<Link href={`/portfolio/works/${item.slug}`} className={styles.link}>
+			<Link href={`/portfolio/work/${item.slug}`} className={styles.link}>
 				<motion.figure
 					className={styles.item}
 					initial="rest"

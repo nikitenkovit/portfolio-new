@@ -1,6 +1,6 @@
 import { Modal } from '@/app/components';
 import { Work } from '@/app/lib/types/portfolio.type';
-import WorkPage from '@/app/portfolio/works/[slug]/page';
+import WorkPage from '@/app/portfolio/work/[slug]/page';
 
 export default async function PhotoModal({
 	params,
