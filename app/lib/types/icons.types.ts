@@ -1,10 +1,14 @@
+import { BsCalendarDate } from 'react-icons/bs';
 import {
 	FaArrowRight,
 	FaBriefcase,
+	FaCode,
 	FaComments,
 	FaCss3,
 	FaDownload,
 	FaEnvelopeOpen,
+	FaExternalLinkAlt,
+	FaGithub,
 	FaGraduationCap,
 	FaHome,
 	FaHtml5,
@@ -44,6 +48,10 @@ export const Icons = {
 	SiPostgresql,
 	SiNodedotjs,
 	FaGraduationCap,
+	FaCode,
+	FaExternalLinkAlt,
+	FaGithub,
+	BsCalendarDate,
 };
 
 export type TypeIconName = keyof typeof Icons;

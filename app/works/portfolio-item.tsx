@@ -28,7 +28,8 @@ export const PortfolioItem = ({ item }: IProps) => {
 
 	return (
 		<li className={styles.container}>
-			<Link href={`/portfolio/works/${item.slug}`} className={styles.link}>
+			{/*@ts-ignore-next-line*/}
+			<Link href={`/works/${item.slug}`} className={styles.link}>
 				<motion.figure
 					className={styles.item}
 					initial="rest"

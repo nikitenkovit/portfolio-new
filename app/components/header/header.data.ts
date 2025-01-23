@@ -11,7 +11,7 @@ export const headerData = {
 		titlePartColor: 'мне',
 		subtitle: 'резюме',
 	},
-	[Link.PORTFOLIO]: {
+	[Link.WORKS]: {
 		titlePart: 'новые',
 		titlePartColor: 'работы',
 		subtitle: 'портфолио',

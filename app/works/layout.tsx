@@ -1,14 +1,14 @@
 export default function PortfolioLayout({
 	children,
-	workModal,
-}: {
+}: // work,
+{
 	children: React.ReactNode;
-	workModal: React.ReactNode;
+	// work: React.ReactNode;
 }) {
 	return (
 		<>
+			{/* {work} */}
 			{children}
-			{workModal}
 		</>
 	);
 }

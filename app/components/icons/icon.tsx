@@ -1,4 +1,3 @@
-// import { Icons, TypeIconName } from '@/app/lib/types/icons.types';
 import { Icons, TypeIconName } from '@/app/lib/types/icons.types';
 import { FC } from 'react';
 
