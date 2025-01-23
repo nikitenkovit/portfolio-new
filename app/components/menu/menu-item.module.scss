@@ -53,7 +53,7 @@
 			background-color: $primary-accent-color;
 		}
 
-		& .active {
+		&.active {
 			background-color: $primary-accent-color;
 		}
 	}
@@ -68,10 +68,6 @@
 	svg {
 		fill: $white-color;
 	}
-}
-
-.link:hover svg {
-	fill: $white-color;
 }
 
 .active .title {
@@ -89,15 +85,15 @@
 }
 
 .active svg {
-	fill: $primary-accent-color;
+	fill: $white-color;
 
 	&:visited {
-		fill: $primary-accent-color;
+		fill: $white-color;
 	}
 
 	@media (min-width: $breakpoint-desktop) {
 		&:visited {
-			fill: $primary-accent-color;
+			fill: $white-color;
 		}
 	}
 }
