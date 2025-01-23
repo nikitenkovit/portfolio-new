@@ -53,7 +53,7 @@
 			background-color: $primary-accent-color;
 		}
 
-		&.active {
+		& .active {
 			background-color: $primary-accent-color;
 		}
 	}
@@ -63,9 +63,18 @@
 	right: 27px;
 	border-radius: 30px 0 0 30px;
 	opacity: 1;
+	color: $white-color;
+
+	svg {
+		fill: $white-color;
+	}
 }
 
-.active {
+.link:hover svg {
+	fill: $white-color;
+}
+
+.active .title {
 	color: $primary-accent-color;
 
 	&:visited {
@@ -73,10 +82,22 @@
 	}
 
 	@media (min-width: $breakpoint-desktop) {
-		color: $white-color;
-
 		&:visited {
-			color: $white-color;
+			color: $primary-accent-color;
+		}
+	}
+}
+
+.active svg {
+	fill: $primary-accent-color;
+
+	&:visited {
+		fill: $primary-accent-color;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		&:visited {
+			fill: $primary-accent-color;
 		}
 	}
 }
