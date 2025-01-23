@@ -2,7 +2,7 @@ import styles from './page.module.scss';
 import { PortfolioItem } from './portfolio-item';
 import { portfolioData } from './portfolio.data';
 
-export default function About() {
+export default function Works() {
 	return (
 		<main className={styles.container}>
 			<ul className={styles.list}>

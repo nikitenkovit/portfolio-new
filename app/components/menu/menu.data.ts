@@ -14,7 +14,7 @@ export const menuDataItems: IMenuItem[] = [
 	},
 	{
 		title: 'Портфолио',
-		link: Link.PORTFOLIO,
+		link: Link.WORKS,
 		icon: 'FaBriefcase',
 	},
 	{

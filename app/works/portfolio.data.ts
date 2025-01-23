@@ -2,6 +2,7 @@ import { Work } from '../lib/types/portfolio.type';
 
 export const portfolioData: Work[] = [
 	{
+		year: '2021',
 		title: 'TrekRussia',
 		slug: 'trek-russia',
 		description:
@@ -12,6 +13,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/trekrussia',
 	},
 	{
+		year: '2025',
 		title: 'My portfolio',
 		slug: 'my-portfolio',
 		description:
@@ -29,11 +31,11 @@ export const portfolioData: Work[] = [
 			'\n' +
 			'Этот проект служит примером того, как я подхожу к созданию сайтов: с вниманием к деталям, стремлением к качеству и ориентацией на потребности пользователей.',
 		technologies: ['Next.js', 'SCSS', 'PostgreSQL', 'Prisma'],
-		link: '#',
 		image: '/portfolio/my-portfolio.png',
 		githubLink: 'https://github.com/nikitenkovit/portfolio-new',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy',
 		description:
@@ -44,6 +46,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 2',
 		description:
@@ -54,6 +57,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 3',
 		description:
@@ -64,6 +68,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 4',
 		description:
@@ -74,6 +79,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 5',
 		description:
@@ -84,6 +90,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 6',
 		description:
@@ -94,6 +101,7 @@ export const portfolioData: Work[] = [
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
 	},
 	{
+		year: '2024',
 		title: 'Cat Energy',
 		slug: 'cat-energy 7',
 		description:

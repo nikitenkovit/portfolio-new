@@ -1,4 +1,5 @@
 export type Work = {
+	year: string;
 	title: string;
 	slug: string;
 	description: string;

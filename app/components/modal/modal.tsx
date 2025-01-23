@@ -1,42 +1,59 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { type ElementRef, useEffect, useRef } from 'react';
+import { useClient } from '@/app/lib/hooks/use-client';
+import { useNavigation } from '@/app/lib/hooks/use-navigation';
+import { type ElementRef, MouseEvent, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './modal.module.scss';
 
 export function Modal({ children }: { children: React.ReactNode }) {
-	const router = useRouter();
 	const dialogRef = useRef<ElementRef<'dialog'>>(null);
+	const ref = useRef<Element | null>(null);
+	const { isMounted } = useClient();
+	const { goBack } = useNavigation();
 
 	useEffect(() => {
-		if (!dialogRef.current?.open) {
+		ref.current = document.querySelector<HTMLElement>('.modal-root');
+
+		if (isMounted && !dialogRef.current?.open) {
 			dialogRef.current?.showModal();
 		}
-	}, []);
+	}, [ref.current]);
 
-	const dismissHandler = () => {
-		router.back();
-	};
+	function closeOnBackDropClick({
+		currentTarget,
+		target,
+	}: MouseEvent<HTMLDialogElement>) {
+		const dialogElement = currentTarget;
+		const isClickedOnBackDrop = target === dialogElement;
 
-	return createPortal(
-		<dialog
-			ref={dialogRef}
-			className={styles.container}
-			onClose={dismissHandler}
-		>
-			{children}
-		</dialog>,
-		document.getElementById('modal-root')!
-	);
+		if (isClickedOnBackDrop) {
+			goBack();
+		}
+	}
 
-	return createPortal(
-		<div className="modal-backdrop">
-			<dialog ref={dialogRef} className="modal" onClose={dismissHandler}>
-				{children}
-				<button onClick={dismissHandler} className="close-button" />
-			</dialog>
-		</div>,
-		document.getElementById('modal-root')!
-	);
+	return isMounted && ref.current
+		? createPortal(
+				<dialog
+					ref={dialogRef}
+					className={styles.modal}
+					onClose={goBack}
+					onClick={closeOnBackDropClick}
+					aria-labelledby="dialog-name"
+				>
+					<div className={styles.container}>
+						<div className={styles.buttonContainer}>
+							<button
+								type="button"
+								className={styles.button}
+								aria-label="Закрыть модальное окно"
+								onClick={goBack}
+							/>
+						</div>
+						<div className={styles.wrapper}>{children}</div>
+					</div>
+				</dialog>,
+				ref.current
+		  )
+		: null;
 }

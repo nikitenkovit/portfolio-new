@@ -37,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={`${montserrat.variable} ${openSans.variable}`}>
-				<div id="modal-root" />
+				<div id="modal-root" className="modal-root" />
 				<Header />
 				<Menu />
 				{children}
