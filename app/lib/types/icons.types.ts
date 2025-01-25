@@ -16,6 +16,7 @@ import {
 	FaSass,
 	FaUser,
 } from 'react-icons/fa';
+import { RiLoginCircleLine } from 'react-icons/ri';
 import {
 	SiJavascript,
 	SiJest,
@@ -52,6 +53,7 @@ export const Icons = {
 	FaExternalLinkAlt,
 	FaGithub,
 	BsCalendarDate,
+	RiLoginCircleLine,
 };
 
 export type TypeIconName = keyof typeof Icons;

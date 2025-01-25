@@ -19,7 +19,10 @@ export default function Menu() {
 				aria-label="Открыть меню"
 				onClick={toggleHandler}
 			/>
-			<ul className={classNames(styles.list, { [styles.opened]: isOpen })}>
+			<ul
+				aria-label="Меню навигации"
+				className={classNames(styles.list, { [styles.opened]: isOpen })}
+			>
 				{menuDataItems.map((item) => (
 					<MenuItem item={item} key={item.title} onClick={toggleHandler} />
 				))}

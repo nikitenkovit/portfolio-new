@@ -1,7 +1,8 @@
 export enum Link {
-	HOME = '/',
-	ABOUT = '/about',
-	WORKS = '/works',
-	CONTACTS = '/contacts',
-	BLOG = '/blog',
+	Home = '/',
+	About = '/about',
+	Works = '/works',
+	Contacts = '/contacts',
+	Blog = '/blog',
+	Login = '/login',
 }
