@@ -1,27 +1,27 @@
 import { Link } from '@/app/lib/types/links.type';
 
 export const headerData = {
-	[Link.HOME]: {
+	[Link.Home]: {
 		titlePart: '',
 		titlePartColor: '',
 		subtitle: '',
 	},
-	[Link.ABOUT]: {
+	[Link.About]: {
 		titlePart: 'обо',
 		titlePartColor: 'мне',
 		subtitle: 'резюме',
 	},
-	[Link.WORKS]: {
+	[Link.Works]: {
 		titlePart: 'новые',
 		titlePartColor: 'работы',
 		subtitle: 'портфолио',
 	},
-	[Link.CONTACTS]: {
+	[Link.Contacts]: {
 		titlePart: 'связаться',
 		titlePartColor: 'со мной',
 		subtitle: 'контакты',
 	},
-	[Link.BLOG]: {
+	[Link.Blog]: {
 		titlePart: 'мой',
 		titlePartColor: 'блог',
 		subtitle: 'посты',

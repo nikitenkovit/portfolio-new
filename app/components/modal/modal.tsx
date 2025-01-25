@@ -50,7 +50,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 								onClick={goBack}
 							/>
 						</div>
-						<div className={styles.wrapper}>{children}</div>
+						{children}
 					</div>
 				</dialog>,
 				ref.current
