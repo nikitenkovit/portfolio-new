@@ -4,5 +4,5 @@ export enum Link {
 	Works = '/works',
 	Contacts = '/contacts',
 	Blog = '/blog',
-	Login = '/login',
+	Empty = '',
 }

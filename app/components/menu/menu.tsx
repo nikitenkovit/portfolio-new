@@ -1,32 +1,47 @@
 'use client';
+import LoginModal from '@/app/login/login';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { MenuItem } from './menu-item';
-import { menuDataItems } from './menu.data';
+import { loginLink, menuDataItems } from './menu.data';
 import styles from './menu.module.scss';
 
 export default function Menu() {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-	const toggleHandler = () => {
-		setIsOpen(!isOpen);
+	const menuToggleHandler = () => setIsMenuOpen(!isMenuOpen);
+	const menuCloseHandler = () => setIsMenuOpen(false);
+	const loginModalOpenHandler = () => {
+		setIsLoginModalOpen(true);
+		setIsMenuOpen(false);
 	};
+	const loginModalCloseHandler = () => setIsLoginModalOpen(false);
 
 	return (
 		<>
 			<button
-				className={classNames(styles.menuToggle, { [styles.opened]: isOpen })}
+				className={classNames(styles.menuToggle, {
+					[styles.opened]: isMenuOpen,
+				})}
 				aria-label="Открыть меню"
-				onClick={toggleHandler}
+				onClick={menuToggleHandler}
 			/>
 			<ul
 				aria-label="Меню навигации"
-				className={classNames(styles.list, { [styles.opened]: isOpen })}
+				className={classNames(styles.list, { [styles.opened]: isMenuOpen })}
 			>
 				{menuDataItems.map((item) => (
-					<MenuItem item={item} key={item.title} onClick={toggleHandler} />
+					<MenuItem item={item} key={item.title} onClick={menuCloseHandler} />
 				))}
+				<MenuItem
+					item={loginLink}
+					key={loginLink.title}
+					onClick={loginModalOpenHandler}
+					isLogin
+				/>
 			</ul>
+			{isLoginModalOpen && <LoginModal onClose={loginModalCloseHandler} />}
 		</>
 	);
 }

@@ -7,6 +7,19 @@
 	}
 }
 
+.login {
+	position: fixed;
+	left: 0;
+	bottom: 50px;
+
+	@media (min-width: $breakpoint-desktop) {
+		left: auto;
+		bottom: auto;
+		top: 30px;
+		right: 30px;
+	}
+}
+
 .link {
 	@include font-face($primary-font, 400);
 
@@ -21,10 +34,6 @@
 
 	&:visited {
 		color: $white-color;
-	}
-
-	&:not(:last-child) {
-		border-bottom: 1px solid $line-color;
 	}
 
 	@media (min-width: $breakpoint-tablet) {

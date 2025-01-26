@@ -27,9 +27,10 @@ export const menuDataItems: IMenuItem[] = [
 		link: Link.Blog,
 		icon: 'FaComments',
 	},
-	{
-		title: 'Войти',
-		link: Link.Login,
-		icon: 'RiLoginCircleLine',
-	},
 ];
+
+export const loginLink: IMenuItem = {
+	title: 'Войти',
+	link: Link.Empty,
+	icon: 'RiLoginCircleLine',
+};
