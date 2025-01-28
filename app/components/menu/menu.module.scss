@@ -6,7 +6,7 @@
 	height: 49px;
 	background-color: $dark-background-menu-color;
 	border-radius: 5px;
-	z-index: 4;
+	z-index: 5;
 	cursor: pointer;
 
 	&::before {
@@ -70,7 +70,7 @@
 	height: 100dvh;
 	padding: 60px 0 0;
 	background-color: $dark-background-menu-color;
-	z-index: 3;
+	z-index: 4;
 
 	&.opened {
 		@media (max-width: 991px) {
@@ -101,5 +101,14 @@
 		background-color: transparent;
 		overflow: visible;
 		border-bottom: none;
+
+		& :not(:last-child) a {
+			border-bottom: none;
+		}
 	}
+}
+
+html:has(.opened) {
+	overflow: hidden;
+	scrollbar-gutter: stable;
 }

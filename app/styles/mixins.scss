@@ -2,8 +2,14 @@
 	font-family: $font-family;
 	font-weight: $font-weight;
 }
-@mixin main-transition($property: all) {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 0.3s;
+@mixin main-transition(
+	$property: all,
+	$delay: 0,
+	$duration: 0.3s,
+	$timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+) {
 	transition-property: $property;
+	transition-delay: $delay;
+	transition-duration: $duration;
+	transition-timing-function: $timing-function;
 }
