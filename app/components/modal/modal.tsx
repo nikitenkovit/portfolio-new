@@ -6,11 +6,18 @@ import { type ElementRef, MouseEvent, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './modal.module.scss';
 
-export function Modal({ children }: { children: React.ReactNode }) {
+export function Modal({
+	onClose,
+	children,
+}: {
+	children: React.ReactNode;
+	onClose?: () => void;
+}) {
 	const dialogRef = useRef<ElementRef<'dialog'>>(null);
 	const ref = useRef<Element | null>(null);
 	const { isMounted } = useClient();
 	const { goBack } = useNavigation();
+	const closeHandler = onClose ? onClose : goBack;
 
 	useEffect(() => {
 		ref.current = document.querySelector<HTMLElement>('.modal-root');
@@ -28,7 +35,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 		const isClickedOnBackDrop = target === dialogElement;
 
 		if (isClickedOnBackDrop) {
-			goBack();
+			closeHandler();
 		}
 	}
 
@@ -37,7 +44,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 				<dialog
 					ref={dialogRef}
 					className={styles.modal}
-					onClose={goBack}
+					onClose={closeHandler}
 					onClick={closeOnBackDropClick}
 					aria-labelledby="dialog-name"
 				>
@@ -47,7 +54,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 								type="button"
 								className={styles.button}
 								aria-label="Закрыть модальное окно"
-								onClick={goBack}
+								onClick={closeHandler}
 							/>
 						</div>
 						{children}

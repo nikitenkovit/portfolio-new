@@ -1,0 +1,45 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 30px 25px 25px;
+	text-align: center;
+	background-color: $secondary-background-color;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding-top: 50px;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		padding: 30px;
+	}
+}
+
+.title {
+	@include font-face($primary-font, 700);
+
+	font-size: 18px;
+	text-transform: uppercase;
+
+	& span {
+		color: $primary-accent-color;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 25px;
+	}
+}
+
+.form {
+	display: grid;
+	gap: 30px;
+	width: 100%;
+	max-width: 400px;
+	margin: auto;
+
+	@media (min-width: $breakpoint-desktop) {
+		max-width: 700px;
+		margin-top: 30px;
+	}
+}

@@ -3,7 +3,7 @@ import { IMenuItem } from '@/app/lib/types/menu.types';
 
 export const menuDataItems: IMenuItem[] = [
 	{
-		title: 'Домой',
+		title: 'Главная',
 		link: Link.Home,
 		icon: 'FaHome',
 	},
@@ -27,9 +27,10 @@ export const menuDataItems: IMenuItem[] = [
 		link: Link.Blog,
 		icon: 'FaComments',
 	},
-	{
-		title: 'Войти',
-		link: Link.Login,
-		icon: 'RiLoginCircleLine',
-	},
 ];
+
+export const loginLink: IMenuItem = {
+	title: 'Войти',
+	link: Link.Empty,
+	icon: 'RiLoginCircleLine',
+};

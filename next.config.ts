@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
 		buildActivityPosition: 'bottom-right',
 	},
 	experimental: {
-		typedRoutes: true,
+		// typedRoutes: true,
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, '/app/styles')],

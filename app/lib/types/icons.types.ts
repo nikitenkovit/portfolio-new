@@ -27,6 +27,7 @@ import {
 	SiRedux,
 	SiTypescript,
 } from 'react-icons/si';
+import { TbFidgetSpinner } from 'react-icons/tb';
 
 export const Icons = {
 	FaArrowRight,
@@ -54,6 +55,7 @@ export const Icons = {
 	FaGithub,
 	BsCalendarDate,
 	RiLoginCircleLine,
+	TbFidgetSpinner,
 };
 
 export type TypeIconName = keyof typeof Icons;
