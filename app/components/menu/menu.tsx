@@ -1,22 +1,19 @@
 'use client';
-import LoginModal from '@/app/login/login';
+import { useAuth } from '@/app/lib/hooks/use-auth';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { MenuItem } from './menu-item';
-import { loginLink, menuDataItems } from './menu.data';
+import { adminLink, loginLink, menuDataItems } from './menu.data';
 import styles from './menu.module.scss';
 
 export default function Menu() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+	const { isAuthenticated, user } = useAuth();
 
 	const menuToggleHandler = () => setIsMenuOpen(!isMenuOpen);
 	const menuCloseHandler = () => setIsMenuOpen(false);
-	const loginModalOpenHandler = () => {
-		setIsLoginModalOpen(true);
-		setIsMenuOpen(false);
-	};
-	const loginModalCloseHandler = () => setIsLoginModalOpen(false);
+
+	console.log({ isAuthenticated, user });
 
 	return (
 		<>
@@ -34,14 +31,22 @@ export default function Menu() {
 				{menuDataItems.map((item) => (
 					<MenuItem item={item} key={item.title} onClick={menuCloseHandler} />
 				))}
-				<MenuItem
-					item={loginLink}
-					key={loginLink.title}
-					onClick={loginModalOpenHandler}
-					isLogin
-				/>
+				{isAuthenticated ? (
+					<MenuItem
+						item={adminLink}
+						key={adminLink.title}
+						onClick={menuCloseHandler}
+						isAdminItem
+					/>
+				) : (
+					<MenuItem
+						item={loginLink}
+						key={loginLink.title}
+						onClick={menuCloseHandler}
+						isAdminItem
+					/>
+				)}
 			</ul>
-			{isLoginModalOpen && <LoginModal onClose={loginModalCloseHandler} />}
 		</>
 	);
 }

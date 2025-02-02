@@ -7,7 +7,7 @@
 	}
 }
 
-.login {
+.admin {
 	position: absolute;
 	left: 0;
 	bottom: 50px;
@@ -91,16 +91,14 @@
 }
 
 .active svg {
-	fill: $white-color;
+	fill: $primary-accent-color;
 
 	&:visited {
-		fill: $white-color;
+		fill: $primary-accent-color;
 	}
 
 	@media (min-width: $breakpoint-desktop) {
-		&:visited {
-			fill: $white-color;
-		}
+		fill: $white-color;
 	}
 }
 
@@ -125,5 +123,31 @@
 		border-radius: 30px;
 		z-index: -1;
 		opacity: 0;
+	}
+}
+
+.imageContainer {
+	position: relative;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+
+	@media (min-width: $breakpoint-tablet) {
+	}
+	@media (min-width: $breakpoint-desktop) {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center 30%;
+
+	@media (min-width: $breakpoint-desktop) {
+		object-position: center center;
 	}
 }

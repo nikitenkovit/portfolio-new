@@ -1,0 +1,30 @@
+.container {
+	position: relative;
+	overflow: visible;
+}
+
+.hint {
+	position: absolute;
+	bottom: calc(100% + 17px);
+	right: 0;
+	width: 300px;
+	padding: 10px;
+	border: 1px solid $primary-accent-color;
+	z-index: 3;
+	background-color: #000000;
+	overflow: visible;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -13px;
+		left: 50%;
+		transform: translateX(-50%) rotate(-45deg);
+		width: 24px;
+		height: 24px;
+		background-color: #000000;
+		border-bottom: 1px solid $primary-accent-color;
+		border-left: 1px solid $primary-accent-color;
+		z-index: -1;
+	}
+}
