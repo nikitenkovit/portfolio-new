@@ -3,6 +3,19 @@
 	flex-direction: column;
 	justify-content: center;
 	height: 100dvh;
+
+	@media (min-width: $breakpoint-desktop) {
+		&::before {
+			content: '';
+			position: fixed;
+			top: -50%;
+			left: -83%;
+			transform: rotate(-15deg);
+			width: 100%;
+			height: 200%;
+			background-color: $primary-accent-color;
+		}
+	}
 }
 
 .wrapper {
