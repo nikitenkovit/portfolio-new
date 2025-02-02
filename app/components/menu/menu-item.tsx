@@ -11,15 +11,15 @@ import styles from './menu-item.module.scss';
 interface IProps {
 	item: IMenuItem;
 	onClick: () => void;
-	isLogin?: boolean;
+	isAdminItem?: boolean;
 }
 
-export const MenuItem = ({ item, onClick, isLogin }: IProps) => {
+export const MenuItem = ({ item, onClick, isAdminItem }: IProps) => {
 	const pathname = getSegment(usePathname());
 	const isActive = pathname === item.link;
 
 	return (
-		<li className={classNames(styles.item, { [styles.login]: isLogin })}>
+		<li className={classNames(styles.item, { [styles.admin]: isAdminItem })}>
 			<Link
 				href={item.link}
 				className={classNames(styles.link, {

@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 90px 25px 50px;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0;
+	}
+}

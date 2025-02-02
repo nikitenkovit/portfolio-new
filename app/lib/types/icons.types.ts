@@ -16,7 +16,8 @@ import {
 	FaSass,
 	FaUser,
 } from 'react-icons/fa';
-import { RiLoginCircleLine } from 'react-icons/ri';
+import { LiaSignOutAltSolid } from 'react-icons/lia';
+import { RiAdminLine, RiLoginCircleLine } from 'react-icons/ri';
 import {
 	SiJavascript,
 	SiJest,
@@ -56,6 +57,8 @@ export const Icons = {
 	BsCalendarDate,
 	RiLoginCircleLine,
 	TbFidgetSpinner,
+	RiAdminLine,
+	LiaSignOutAltSolid,
 };
 
 export type TypeIconName = keyof typeof Icons;

@@ -1,6 +1,11 @@
 import { Link } from '@/app/lib/types/links.type';
 
 export const headerData = {
+	[Link.Empty]: {
+		titlePart: '',
+		titlePartColor: '',
+		subtitle: '',
+	},
 	[Link.Home]: {
 		titlePart: '',
 		titlePartColor: '',
@@ -25,5 +30,15 @@ export const headerData = {
 		titlePart: 'мой',
 		titlePartColor: 'блог',
 		subtitle: 'посты',
+	},
+	[Link.Signin]: {
+		titlePart: 'вход',
+		titlePartColor: 'для админа',
+		subtitle: 'вход',
+	},
+	[Link.Admin]: {
+		titlePart: 'панель',
+		titlePartColor: 'админа',
+		subtitle: 'Админка',
 	},
 };

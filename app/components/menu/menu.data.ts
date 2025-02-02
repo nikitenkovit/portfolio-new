@@ -31,6 +31,12 @@ export const menuDataItems: IMenuItem[] = [
 
 export const loginLink: IMenuItem = {
 	title: 'Войти',
-	link: Link.Empty,
+	link: Link.Signin,
 	icon: 'RiLoginCircleLine',
+};
+
+export const adminLink: IMenuItem = {
+	title: 'Админка',
+	link: Link.Admin,
+	icon: 'RiAdminLine',
 };

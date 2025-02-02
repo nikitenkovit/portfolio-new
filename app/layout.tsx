@@ -3,6 +3,7 @@ import { Montserrat, Open_Sans } from 'next/font/google';
 
 import { Header } from './components';
 import Menu from './components/menu/menu';
+import { Providers } from './components/providers/providers';
 import './styles/globals.scss';
 
 const montserrat = Montserrat({
@@ -37,10 +38,12 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={`${montserrat.variable} ${openSans.variable}`}>
-				<div id="modal-root" className="modal-root" />
-				<Header />
-				<Menu />
-				{children}
+				<Providers>
+					<div id="modal-root" className="modal-root" />
+					<Header />
+					<Menu />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);
