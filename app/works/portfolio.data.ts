@@ -1,5 +1,14 @@
 import { Work } from '../lib/types/portfolio.type';
 
+export const addNewWorkData: Work = {
+	year: '',
+	title: 'Добавить',
+	slug: '',
+	description: '',
+	technologies: '',
+	image: '',
+};
+
 export const portfolioData: Work[] = [
 	{
 		year: '2021',
@@ -7,7 +16,7 @@ export const portfolioData: Work[] = [
 		slug: 'trek-russia',
 		description:
 			'Коммерческий проект. Главная страница для сайта туристической компании TrekRussia. Адаптивная, резиновая верстка по макету Figma.',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
+		technologies: 'HTML, SCSS, JavaScript',
 		link: 'https://trek-russia.com/trekRussia/2021/index.html',
 		image: '/portfolio/trekrussia.jpg',
 		githubLink: 'https://github.com/nikitenkovit/trekrussia',
@@ -30,7 +39,7 @@ export const portfolioData: Work[] = [
 			'- Простая навигация и удобная структура контента.\n' +
 			'\n' +
 			'Этот проект служит примером того, как я подхожу к созданию сайтов: с вниманием к деталям, стремлением к качеству и ориентацией на потребности пользователей.',
-		technologies: ['Next.js', 'SCSS', 'PostgreSQL', 'Prisma'],
+		technologies: 'Next.js, SCSS, PostgreSQL, Prisma',
 		image: '/portfolio/my-portfolio.png',
 		githubLink: 'https://github.com/nikitenkovit/portfolio-new',
 	},
@@ -40,73 +49,7 @@ export const portfolioData: Work[] = [
 		slug: 'cat-energy',
 		description:
 			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 2',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 3',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 4',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 5',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 6',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
-		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
-		image: '/portfolio/cat-energy.png',
-		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
-	},
-	{
-		year: '2024',
-		title: 'Cat Energy',
-		slug: 'cat-energy 7',
-		description:
-			'Сайт функционального питания для котов. Верстка по макету Figma. Создавался с целью прохождения курса по современным методам верстки',
-		technologies: ['HTML', 'SCSS', 'JavaScript'],
+		technologies: 'HTML, SCSS, JavaScript',
 		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
 		image: '/portfolio/cat-energy.png',
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',

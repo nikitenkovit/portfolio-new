@@ -47,9 +47,7 @@ export default async function WorkPage({ params }: { params: Promise<Work> }) {
 							<Icon name="FaCode" />
 							Технологии :&nbsp;
 						</dt>
-						<dd className={styles.infoDefinition}>
-							{work?.technologies?.join(', ')}
-						</dd>
+						<dd className={styles.infoDefinition}>{work?.technologies}</dd>
 					</div>
 
 					{work?.githubLink && (

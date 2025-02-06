@@ -39,6 +39,6 @@ export const headerData = {
 	[Link.Admin]: {
 		titlePart: 'панель',
 		titlePartColor: 'админа',
-		subtitle: 'Админка',
+		subtitle: 'Управление',
 	},
 };

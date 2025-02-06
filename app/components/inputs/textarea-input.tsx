@@ -4,24 +4,27 @@ import commonStyles from './common-input.module.scss';
 
 type BgColor = 'primary' | 'secondary';
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
-	ref?: Ref<HTMLInputElement>;
+interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
+	ref?: Ref<HTMLTextAreaElement>;
 	width: string;
 	bgColor?: BgColor;
+	rows?: number;
 }
 
-export const TextInput = ({
+export const TextareaInput = ({
 	ref,
 	width,
 	bgColor = 'primary',
+	rows,
 	...restProps
 }: IProps) => {
 	return (
-		<input
+		<textarea
 			{...restProps}
 			ref={ref}
 			style={{ width }}
-			className={classNames(commonStyles.commonInput, {
+			rows={rows}
+			className={classNames(commonStyles.commonInput, commonStyles.noResize, {
 				[commonStyles.primary]: bgColor === 'primary',
 				[commonStyles.secondary]: bgColor === 'secondary',
 			})}

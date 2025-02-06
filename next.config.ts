@@ -19,7 +19,9 @@ const nextConfig: NextConfig = {
 		buildActivityPosition: 'bottom-right',
 	},
 	experimental: {
-		// typedRoutes: true,
+		serverActions: {
+			bodySizeLimit: '5mb',
+		},
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, '/app/styles')],

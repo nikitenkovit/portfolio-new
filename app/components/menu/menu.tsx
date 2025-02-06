@@ -13,8 +13,6 @@ export default function Menu() {
 	const menuToggleHandler = () => setIsMenuOpen(!isMenuOpen);
 	const menuCloseHandler = () => setIsMenuOpen(false);
 
-	console.log({ isAuthenticated, user });
-
 	return (
 		<>
 			<button
