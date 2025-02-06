@@ -16,6 +16,7 @@ import {
 	FaSass,
 	FaUser,
 } from 'react-icons/fa';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 import { LiaSignOutAltSolid } from 'react-icons/lia';
 import { RiAdminLine, RiLoginCircleLine } from 'react-icons/ri';
 import {
@@ -59,6 +60,7 @@ export const Icons = {
 	TbFidgetSpinner,
 	RiAdminLine,
 	LiaSignOutAltSolid,
+	IoIosAddCircleOutline,
 };
 
 export type TypeIconName = keyof typeof Icons;

@@ -1,0 +1,23 @@
+.form {
+	display: grid;
+	gap: 30px;
+	width: 100%;
+	margin-top: 30px;
+	overflow: visible;
+}
+
+.message {
+	@include font-face($secondary-font, 500);
+
+	padding: 10px;
+	background-color: $dark-background-color;
+	font-size: 14px;
+	border-radius: 10px;
+	border: 1px solid red;
+}
+
+.year {
+	width: max-content;
+	align-self: flex-start;
+	overflow: visible;
+}

@@ -1,15 +1,11 @@
 import styles from './page.module.scss';
-import { PortfolioItem } from './portfolio-item';
 import { portfolioData } from './portfolio.data';
+import { WorkList } from './work-list';
 
 export default function Works() {
 	return (
 		<main className={styles.container}>
-			<ul className={styles.list}>
-				{portfolioData.map((item) => {
-					return <PortfolioItem item={item} key={item.slug} />;
-				})}
-			</ul>
+			<WorkList items={portfolioData} />
 		</main>
 	);
 }

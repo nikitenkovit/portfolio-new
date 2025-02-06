@@ -1,5 +1,7 @@
 .infoContainer {
 	padding: 40px 25px 80px;
+	border-radius: 10px;
+	// overflow: visible;
 
 	@media (min-width: $breakpoint-tablet) {
 		max-width: 720px;
@@ -99,6 +101,7 @@
 .description {
 	@include font-face($secondary-font, 400);
 	text-align: start;
+	white-space: pre-wrap;
 }
 
 .imageContainer {
