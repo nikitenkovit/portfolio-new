@@ -7,7 +7,6 @@ export const useNavigation = () => {
 	const swap = usePathname().split('/').at(1);
 
 	const goBack = () => {
-		// @ts-ignore
 		router.push(`/${swap}`);
 	};
 

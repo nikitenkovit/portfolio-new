@@ -1,4 +1,4 @@
-import { Icon } from '@/app/components';
+import { Icon } from '@/app/components/icons/icon-component';
 import uuid from 'react-uuid';
 import styles from './experience-list.module.scss';
 import { Experience } from './experience.type';

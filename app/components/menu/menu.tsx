@@ -8,7 +8,7 @@ import styles from './menu.module.scss';
 
 export default function Menu() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { isAuthenticated, user } = useAuth();
+	const { isAuthenticated } = useAuth();
 
 	const menuToggleHandler = () => setIsMenuOpen(!isMenuOpen);
 	const menuCloseHandler = () => setIsMenuOpen(false);

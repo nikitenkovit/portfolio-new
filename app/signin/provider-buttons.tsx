@@ -2,11 +2,12 @@
 
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { MainButtonWrapper } from '../components';
 import { Link } from '../lib/types/links.type';
 import styles from './provider-buttons.module.scss';
 
-export function ProviderButtons() {
+const Buttons = () => {
 	const searchParams = useSearchParams();
 	const callbackUrl = searchParams.get('callbackUrl') || Link.Admin;
 
@@ -24,5 +25,14 @@ export function ProviderButtons() {
 				</button>
 			</MainButtonWrapper>
 		</div>
+	);
+};
+
+export function ProviderButtons() {
+	return (
+		// FIXME: Добавить прелоадер в саспенс
+		<Suspense fallback={<div>Загрузка</div>}>
+			<Buttons />
+		</Suspense>
 	);
 }

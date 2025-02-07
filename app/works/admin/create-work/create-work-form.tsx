@@ -1,6 +1,6 @@
 'use client';
 
-import { createWork, CreateWorkState } from '@/app/api/work/actions';
+import { createWork, CreateWorkState } from '@/app/actions/work/create.action';
 import { MainButtonWrapper, TextInput } from '@/app/components';
 import { Hint } from '@/app/components/hint/hint';
 import { TextareaInput } from '@/app/components/inputs/textarea-input';

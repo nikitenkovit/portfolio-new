@@ -1,3 +1,4 @@
+import { AuthService } from '@/app/api/auth/auth.service';
 import { Link } from '@/app/lib/types/links.type';
 import bcrypt from 'bcrypt';
 import type { AuthOptions } from 'next-auth';
@@ -5,7 +6,6 @@ import Credentials from 'next-auth/providers/credentials';
 import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { z } from 'zod';
-import { getUser } from './service';
 
 export const authConfig: AuthOptions = {
 	providers: [
@@ -30,13 +30,13 @@ export const authConfig: AuthOptions = {
 				if (parsedCredentials.success) {
 					const { email, password } = parsedCredentials.data;
 
-					const user = await getUser(email);
+					const user = await new AuthService().getUser(email);
 					if (!user) return null;
 					const passwordsMatch = await bcrypt.compare(password, user.password);
 
 					const { password: _pass, ...userWithoutPass } = user;
 
-					if (passwordsMatch) return userWithoutPass;
+					if (_pass && passwordsMatch) return userWithoutPass;
 				}
 
 				console.log('Invalid credentials');

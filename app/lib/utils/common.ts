@@ -1,4 +1,4 @@
-import { AuthError, ERROR_TEXT } from './constants/auth';
+import { AuthError, ERROR_TEXT } from '../constants/auth';
 
 export const getAge = () => {
 	return new Date().getFullYear() - 1986;

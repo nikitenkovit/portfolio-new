@@ -1,11 +1,11 @@
 'use client';
 
 import { IMenuItem } from '@/app/lib/types/menu.types';
-import { getSegment } from '@/app/lib/utils';
+import { getSegment } from '@/app/lib/utils/common';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Icon } from '../icons';
+import { Icon } from '../icons/icon-component';
 import styles from './menu-item.module.scss';
 
 interface IProps {

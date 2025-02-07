@@ -1,5 +1,6 @@
-import { Icon, Modal } from '@/app/components';
-import { Work } from '@/app/lib/types/portfolio.type';
+import { Modal } from '@/app/components';
+import { Icon } from '@/app/components/icons/icon-component';
+import { Work } from '@prisma/client';
 import Image from 'next/image';
 import { portfolioData } from '../portfolio.data';
 import styles from './work.module.scss';

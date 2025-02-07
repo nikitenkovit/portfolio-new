@@ -1,5 +1,6 @@
 'use server';
 
+import { WorkService } from '@/app/api/work/work.service';
 import { CURRENT_YEAR } from '@/app/lib/constants/common';
 import {
 	MAX_FILE_SIZE,
@@ -21,7 +22,8 @@ const FormSchema = z
 				invalid_type_error: 'Год должен быть числом',
 			})
 			.gt(2021, { message: 'Год должен быть больше 2021' })
-			.lte(CURRENT_YEAR, { message: 'Год не может быть больше текущего' }),
+			.lte(CURRENT_YEAR, { message: 'Год не может быть больше текущего' })
+			.transform(String),
 		title: z
 			.string({
 				invalid_type_error: 'Заполните название',
@@ -108,7 +110,7 @@ export type CreateWorkState = {
 };
 
 export async function createWork(
-	prevState: CreateWorkState,
+	_prevState: CreateWorkState,
 	formData: FormData
 ) {
 	const year = (formData.get('year') as string) || '';
@@ -118,8 +120,6 @@ export async function createWork(
 	const link = (formData.get('link') as string) || '';
 	const githubLink = (formData.get('githubLink') as string) || '';
 	const image = formData.get('image') as File;
-
-	console.log({ year, title, description, technologies, githubLink, image });
 
 	const validatedFields = CreateWork.safeParse({
 		year,
@@ -148,18 +148,21 @@ export async function createWork(
 
 	const data = validatedFields.data;
 
-	console.log('data', data);
-
-	// try {
-	// 	await pool.query(`
-	// 		INSERT INTO invoices (customer_id, amount, status, date)
-	// 		VALUES ('${customerId}', ${amountInCents}, '${status}', '${date}')
-	// 	`);
-	// } catch (error) {
-	// 	return {
-	// 		message: 'Database Error: Failed to Create Invoice.',
-	// 	};
-	// }
+	try {
+		await new WorkService().createWork(data);
+	} catch (error) {
+		return {
+			fieldsValue: {
+				year,
+				title,
+				description,
+				technologies,
+				link,
+				githubLink,
+			},
+			message: `Database ${error}`,
+		};
+	}
 
 	revalidatePath(Link.Works);
 	redirect(Link.Works);

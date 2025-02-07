@@ -1,4 +1,4 @@
-import { Work } from '../lib/types/portfolio.type';
+import { Work } from '@prisma/client';
 
 export const addNewWorkData: Work = {
 	year: '',
@@ -6,9 +6,14 @@ export const addNewWorkData: Work = {
 	slug: '',
 	description: '',
 	technologies: '',
-	image: '',
+	id: 'new',
+	image: null,
+	link: null,
+	githubLink: null,
+	createdAt: new Date(),
+	updatedAt: new Date(),
 };
-
+// FIXME: Удалить
 export const portfolioData: Work[] = [
 	{
 		year: '2021',
@@ -20,6 +25,9 @@ export const portfolioData: Work[] = [
 		link: 'https://trek-russia.com/trekRussia/2021/index.html',
 		image: '/portfolio/trekrussia.jpg',
 		githubLink: 'https://github.com/nikitenkovit/trekrussia',
+		id: 'new',
+		createdAt: new Date(),
+		updatedAt: new Date(),
 	},
 	{
 		year: '2025',
@@ -42,6 +50,10 @@ export const portfolioData: Work[] = [
 		technologies: 'Next.js, SCSS, PostgreSQL, Prisma',
 		image: '/portfolio/my-portfolio.png',
 		githubLink: 'https://github.com/nikitenkovit/portfolio-new',
+		id: 'new',
+		link: null,
+		createdAt: new Date(),
+		updatedAt: new Date(),
 	},
 	{
 		year: '2024',
@@ -53,5 +65,8 @@ export const portfolioData: Work[] = [
 		link: 'https://nikitenkovit.github.io/1378865-cat-energy-31/',
 		image: '/portfolio/cat-energy.png',
 		githubLink: 'https://github.com/nikitenkovit/1378865-cat-energy-31',
+		id: 'new',
+		createdAt: new Date(),
+		updatedAt: new Date(),
 	},
 ];

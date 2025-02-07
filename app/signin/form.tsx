@@ -5,11 +5,12 @@ import { FormEventHandler, useState } from 'react';
 import { MainButtonWrapper, TextInput } from '../components';
 import { Hint } from '../components/hint/hint';
 import { Link } from '../lib/types/links.type';
-import { getAuthError } from '../lib/utils';
+import { getAuthError } from '../lib/utils/common';
 import styles from './form.module.scss';
 
 export function SignInForm() {
 	const router = useRouter();
+	// FIXME: добавить isFetching для кнопки отправки
 	const [error, setError] = useState<string | undefined>(undefined);
 	// FIXME: сделать валидацию с помощью useFormContext
 

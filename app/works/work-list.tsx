@@ -1,7 +1,7 @@
 'use client';
+import { Work } from '@prisma/client';
 import { useState } from 'react';
 import { useAuth } from '../lib/hooks/use-auth';
-import { Work } from '../lib/types/portfolio.type';
 import { CreateWorkModal } from './admin/create-work/create-work-modal';
 import styles from './page.module.scss';
 import { PortfolioItem } from './portfolio-item';
