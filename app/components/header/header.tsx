@@ -1,6 +1,6 @@
 'use client';
 import { Link } from '@/app/lib/types/links.type';
-import { getSegment } from '@/app/lib/utils';
+import { getSegment } from '@/app/lib/utils/common';
 import { usePathname } from 'next/navigation';
 import { headerData } from './header.data';
 import styles from './header.module.scss';

@@ -25,7 +25,7 @@ export function Modal({
 		if (isMounted && !dialogRef.current?.open) {
 			dialogRef.current?.showModal();
 		}
-	}, [ref.current]);
+	}, [isMounted]);
 
 	function closeOnBackDropClick({
 		currentTarget,

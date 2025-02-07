@@ -1,4 +1,4 @@
-import { Work } from '@/app/lib/types/portfolio.type';
+import { Work } from '@prisma/client';
 import Works from '../page';
 import { portfolioData } from '../portfolio.data';
 import WorkPage from './work';

@@ -1,7 +1,6 @@
 import { Icons, TypeIconName } from '@/app/lib/types/icons.types';
-import { FC } from 'react';
 
-export const Icon: FC<{ name: TypeIconName }> = ({ name }) => {
+export const Icon = ({ name }: { name: TypeIconName }) => {
 	const IconComponent = Icons[name];
 
 	if (IconComponent) {

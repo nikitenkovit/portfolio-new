@@ -1,10 +1,9 @@
-export type Work = {
-	year: string;
+export type WorkPayload = {
 	title: string;
-	slug: string;
+	year: string;
 	description: string;
 	technologies: string;
 	link?: string;
-	image: string;
 	githubLink?: string;
+	image?: File;
 };

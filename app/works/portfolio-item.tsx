@@ -1,10 +1,11 @@
 'use client';
 
+import { Work } from '@prisma/client';
 import classNames from 'classnames';
+// FIXME: Переписать анимацию на нативную и удалить библиотеку framer-motion!!!
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Work } from '../lib/types/portfolio.type';
 import styles from './portfolio-item.module.scss';
 
 interface IProps {
