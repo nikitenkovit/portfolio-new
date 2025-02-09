@@ -1,4 +1,4 @@
-import { authConfig } from '@/app/configs/auth/auth.config';
+import { authConfig } from '@/app/configs/auth.config';
 import { ERROR_TEXT } from '@/app/lib/constants/auth';
 import { prisma } from '@/app/lib/db';
 import { User } from '@prisma/client';

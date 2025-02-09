@@ -1,11 +1,17 @@
+import { Suspense } from 'react';
+import { getWorks } from '../lib/data/getWorks';
 import styles from './page.module.scss';
-import { portfolioData } from './portfolio.data';
 import { WorkList } from './work-list';
 
-export default function Works() {
+export default async function Works() {
+	const works = await getWorks();
+
+	// FIXME: Добавить скелетон
 	return (
 		<main className={styles.container}>
-			<WorkList items={portfolioData} />
+			<Suspense fallback={<div>Loading...</div>}>
+				<WorkList items={works} />
+			</Suspense>
 		</main>
 	);
 }

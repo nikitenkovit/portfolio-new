@@ -148,8 +148,11 @@ export async function createWork(
 
 	const data = validatedFields.data;
 
+	let slug;
+
 	try {
-		await new WorkService().createWork(data);
+		const workService = new WorkService();
+		slug = await workService.createWork(data);
 	} catch (error) {
 		return {
 			fieldsValue: {
@@ -165,5 +168,6 @@ export async function createWork(
 	}
 
 	revalidatePath(Link.Works);
-	redirect(Link.Works);
+	redirect(`${Link.Works}/${slug}`);
+	// redirect(Link.Works);
 }

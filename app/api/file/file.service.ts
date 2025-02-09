@@ -20,11 +20,7 @@ export class FileService extends AuthService implements FileServiceInterface {
 		}
 
 		try {
-			const uploadFolder = path.join(
-				process.cwd(),
-				DEFAULT_UPLOAD_FOLDER_NAME,
-				folder
-			);
+			const uploadFolder = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
 
 			const url = `${uploadFolder}/${file.name}`;
 
@@ -34,7 +30,7 @@ export class FileService extends AuthService implements FileServiceInterface {
 
 			await writeFile(url, Buffer.from(fileBuffer));
 
-			return url;
+			return `/${folder}/${file.name}`;
 		} catch (error) {
 			throw new Error(`${ERROR_TEXT.SAVE_FILE}: ${error}`);
 		}

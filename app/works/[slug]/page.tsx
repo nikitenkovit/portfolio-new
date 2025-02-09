@@ -1,18 +1,29 @@
+import { Modal } from '@/app/components';
+import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
+import { getWorks } from '@/app/lib/data/getWorks';
 import { Work } from '@prisma/client';
 import Works from '../page';
-import { portfolioData } from '../portfolio.data';
 import WorkPage from './work';
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
-export function generateStaticParams() {
-	return portfolioData.map((data) => ({ slug: data.slug }));
+export async function generateStaticParams() {
+	const works = await getWorks();
+	return works.map((data) => ({ slug: data.slug }));
 }
 
-export default function SlugWorks({ params }: { params: Promise<Work> }) {
+export default function WorkListWithSingleJob({
+	params,
+}: {
+	params: Promise<Work>;
+}) {
 	return (
 		<div>
-			<WorkPage params={params} />
+			<Modal>
+				<ErrorBoundary>
+					<WorkPage params={params} />
+				</ErrorBoundary>
+			</Modal>
 			<Works />
 		</div>
 	);

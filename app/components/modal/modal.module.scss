@@ -11,11 +11,9 @@
 	}
 
 	@media (min-width: $breakpoint-desktop) {
-		position: absolute;
 		margin: auto;
-		inset: 0;
 		text-align: center;
-		border-radius: 10px;
+		background-color: transparent;
 	}
 }
 

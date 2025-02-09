@@ -13,3 +13,9 @@
 	transition-duration: $duration;
 	transition-timing-function: $timing-function;
 }
+
+@mixin with-default-image() {
+	background-image: url($default-work-image);
+	background-size: cover;
+	background-position: center;
+}
