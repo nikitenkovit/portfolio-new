@@ -15,6 +15,10 @@
 		height: 14.65vw;
 		border-radius: 10px;
 	}
+
+	&:not(.createItem) {
+		@include with-default-image();
+	}
 }
 
 .link {
@@ -68,7 +72,7 @@
 	object-fit: cover;
 }
 
-.addNew {
+.createItem {
 	border: 1px solid $primary-accent-color;
 
 	& .item {
@@ -78,7 +82,7 @@
 		align-items: center;
 	}
 
-	& .addText {
+	& .createText {
 		font-size: 85px;
 		color: $primary-accent-color;
 	}

@@ -28,6 +28,14 @@ const nextConfig: NextConfig = {
 		prependData: `@import "bootstrap.scss";`,
 		silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
 	},
+	// async rewrites() {
+	// 	return [
+	// 		{
+	// 			source: '/api/:path*',
+	// 			destination: 'http://localhost:3000/api/:path*',
+	// 		},
+	// 	];
+	// },
 };
 
 export default nextConfig;

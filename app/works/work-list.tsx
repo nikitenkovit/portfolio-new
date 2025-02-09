@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useAuth } from '../lib/hooks/use-auth';
 import { CreateWorkModal } from './admin/create-work/create-work-modal';
 import styles from './page.module.scss';
-import { PortfolioItem } from './portfolio-item';
 import { addNewWorkData } from './portfolio.data';
+import { WorkItem } from './work-item';
 
 interface IProps {
 	items: Work[];
@@ -21,15 +21,15 @@ export const WorkList = ({ items }: IProps) => {
 		<>
 			<ul className={styles.list}>
 				{isAuthenticated && (
-					<PortfolioItem
+					<WorkItem
 						item={addNewWorkData}
 						key={addNewWorkData.title}
-						addNew={isAuthenticated}
+						isItemCreate={isAuthenticated}
 						onClick={createModalOpenHandler}
 					/>
 				)}
-				{items.map((item) => {
-					return <PortfolioItem item={item} key={item.slug} />;
+				{items?.map((item) => {
+					return <WorkItem item={item} key={item.slug} />;
 				})}
 			</ul>
 			{isCreateModalOpen && (

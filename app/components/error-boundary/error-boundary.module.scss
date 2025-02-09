@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	padding: 30px;
+}
+
+.title {
+	@include font-face($primary-font, 700);
+	text-transform: uppercase;
+	font-size: 18px;
+
+	@media (min-width: $breakpoint-desktop) {
+		font-size: 20px;
+	}
+
+	span {
+		color: $primary-accent-color;
+	}
+}
+
+.message {
+	@include font-face($secondary-font, 400);
+	font-size: 18px;
+
+	@media (min-width: $breakpoint-desktop) {
+		font-size: 20px;
+	}
+}

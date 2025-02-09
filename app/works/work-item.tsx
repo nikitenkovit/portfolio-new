@@ -6,15 +6,15 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './portfolio-item.module.scss';
+import styles from './work-item.module.scss';
 
 interface IProps {
 	item: Work;
-	addNew?: boolean;
 	onClick?: () => void;
+	isItemCreate?: boolean;
 }
 
-export const PortfolioItem = ({ item, addNew, onClick }: IProps) => {
+export const WorkItem = ({ item, isItemCreate, onClick }: IProps) => {
 	const slashMotion = {
 		rest: {
 			y: '-100%',
@@ -31,7 +31,11 @@ export const PortfolioItem = ({ item, addNew, onClick }: IProps) => {
 	};
 
 	return (
-		<li className={classNames(styles.container, { [styles.addNew]: addNew })}>
+		<li
+			className={classNames(styles.container, {
+				[styles.createItem]: isItemCreate,
+			})}
+		>
 			<Link
 				href={`/works/${item.slug}`}
 				className={styles.link}
@@ -43,7 +47,8 @@ export const PortfolioItem = ({ item, addNew, onClick }: IProps) => {
 					whileHover="hover"
 					animate="rest"
 				>
-					{item.image ? (
+					{isItemCreate && <span className={styles.createText}>+</span>}{' '}
+					{!isItemCreate && item.image && (
 						<Image
 							src={item.image}
 							fill
@@ -51,8 +56,6 @@ export const PortfolioItem = ({ item, addNew, onClick }: IProps) => {
 							className={styles.image}
 							quality={75}
 						/>
-					) : (
-						<span className={styles.addText}>+</span>
 					)}
 					<motion.figcaption className={styles.caption} variants={slashMotion}>
 						{item.title}
