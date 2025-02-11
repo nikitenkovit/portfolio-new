@@ -59,10 +59,10 @@
 	}
 
 	&.red {
-		border: 1px solid red;
+		border: 1px solid $danger-color;
 
 		&::after {
-			border-color: red;
+			border-color: $danger-color;
 		}
 	}
 }

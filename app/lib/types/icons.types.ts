@@ -16,7 +16,11 @@ import {
 	FaSass,
 	FaUser,
 } from 'react-icons/fa';
-import { IoIosAddCircleOutline } from 'react-icons/io';
+import { GrEdit } from 'react-icons/gr';
+import {
+	IoIosAddCircleOutline,
+	IoIosRemoveCircleOutline,
+} from 'react-icons/io';
 import { LiaSignOutAltSolid } from 'react-icons/lia';
 import { RiAdminLine, RiLoginCircleLine } from 'react-icons/ri';
 import {
@@ -61,6 +65,8 @@ export const Icons = {
 	RiAdminLine,
 	LiaSignOutAltSolid,
 	IoIosAddCircleOutline,
+	GrEdit,
+	IoIosRemoveCircleOutline,
 };
 
 export type TypeIconName = keyof typeof Icons;

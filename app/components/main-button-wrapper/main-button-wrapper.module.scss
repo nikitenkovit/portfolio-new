@@ -3,7 +3,7 @@
 	display: grid;
 	align-items: center;
 	width: 230px;
-	height: 55px;
+	height: 48px;
 	border: 1px solid $primary-accent-color;
 	border-radius: 30px;
 	overflow: hidden;
@@ -42,8 +42,8 @@
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		width: 55px;
-		height: 55px;
+		width: 48px;
+		height: 48px;
 		color: $white-color;
 		background-color: $primary-accent-color;
 		border-radius: 50%;
@@ -66,7 +66,7 @@
 			top: 0;
 			right: -230px;
 			width: 230px;
-			height: 55px;
+			height: 48px;
 			background-color: $primary-accent-color;
 			z-index: 3;
 		}
@@ -74,6 +74,28 @@
 
 	&:hover span::before {
 		right: 0;
+	}
+}
+
+.green {
+	border-color: $primary-accent-color;
+	span {
+		background-color: $primary-accent-color;
+
+		&::before {
+			background-color: $primary-accent-color;
+		}
+	}
+}
+
+.red {
+	border-color: $danger-color;
+	span {
+		background-color: $danger-color;
+
+		&::before {
+			background-color: $danger-color;
+		}
 	}
 }
 

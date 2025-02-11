@@ -2,6 +2,7 @@ import { Icon } from '@/app/components/icons/icon-component';
 import { getWork, getWorks } from '@/app/lib/data/getWorks';
 import { Work } from '@prisma/client';
 import Image from 'next/image';
+import { WorkActions } from './work-actions/work-actions';
 import styles from './work.module.scss';
 
 export const dynamicParams = true;
@@ -81,6 +82,8 @@ export default async function WorkPage({ params }: { params: Promise<Work> }) {
 			</dl>
 
 			<p className={styles.description}>{work?.description}</p>
+
+			<WorkActions slug={slug} />
 		</div>
 	);
 }
