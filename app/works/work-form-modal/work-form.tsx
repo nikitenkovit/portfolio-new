@@ -1,9 +1,10 @@
 'use client';
 
-import { createWork, CreateWorkState } from '@/app/actions/work/create.action';
-import { MainButtonWrapper, TextInput } from '@/app/components';
+import { createOrUpdateWork, WorkActionState } from '@/app/actions/work.action';
+import { TextInput } from '@/app/components';
 import { Hint } from '@/app/components/hint/hint';
 import { TextareaInput } from '@/app/components/inputs/textarea-input';
+import { MainForm } from '@/app/components/main-form/main-form';
 import { CURRENT_YEAR } from '@/app/lib/constants/common';
 import {
 	MAX_WORK_DESCRIPTIONS_LENGTH,
@@ -11,21 +12,36 @@ import {
 	MAX_WORK_TITLE_LENGTH,
 } from '@/app/lib/constants/works';
 import { useInputFocus } from '@/app/lib/hooks/use-input-focus';
+import { Work } from '@prisma/client';
 import { MutableRefObject, useActionState } from 'react';
-import styles from './create-work-form.module.scss';
+import styles from './work-form.module.scss';
 
-export const CreateWorkForm = () => {
+export const WorkForm = ({ work }: { work?: Work }) => {
 	const { inputRef } = useInputFocus();
-	const initialState: CreateWorkState = {
+	const initialState: WorkActionState = {
+		id: work?.id,
 		message: null,
 		errors: {},
-		fieldsValue: { year: CURRENT_YEAR },
+		fieldsValue: {
+			title: work?.title,
+			technologies: work?.technologies,
+			link: work?.link || undefined,
+			githubLink: work?.githubLink || undefined,
+			description: work?.description,
+			year: work?.year || CURRENT_YEAR,
+		},
 	};
-	const [{ message, errors, fieldsValue }, formAction, isPending] =
-		useActionState(createWork, initialState);
+	const [{ message, errors, fieldsValue, id }, formAction, isPending] =
+		useActionState(createOrUpdateWork, initialState);
 
 	return (
-		<form action={formAction} className={styles.form}>
+		<MainForm
+			formAction={formAction}
+			iconName={id ? 'GrEdit' : 'IoIosAddCircleOutline'}
+			buttonName={id ? 'Изменить' : 'Создать'}
+			isPending={isPending}
+			errorMessage={message}
+		>
 			<Hint text={errors?.title?.join('\n\n')} variant="red">
 				<TextInput
 					ref={inputRef as MutableRefObject<HTMLInputElement | null>}
@@ -111,10 +127,6 @@ export const CreateWorkForm = () => {
 					/>
 				</Hint>
 			</div>
-			{message && <div className={styles.message}>{message}</div>}
-			<MainButtonWrapper iconName="IoIosAddCircleOutline" pending={isPending}>
-				<button type="submit">Создать</button>
-			</MainButtonWrapper>
-		</form>
+		</MainForm>
 	);
 };

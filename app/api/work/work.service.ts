@@ -31,7 +31,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		});
 	}
 
-	public async createWork(work: WorkPayload): Promise<string | void> {
+	public async createWork(work: WorkPayload): Promise<string | undefined> {
 		const isAuthorized = await this.checkUserAuthorization();
 
 		if (!isAuthorized) {
@@ -43,6 +43,40 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		const image = await this.fileService.saveFile('works', work.image);
 
 		await prisma.work.create({
+			data: { ...work, slug, image },
+		});
+
+		return slug;
+	}
+
+	public async updateWork(
+		id: string,
+		work: WorkPayload
+	): Promise<string | undefined> {
+		const isAuthorized = await this.checkUserAuthorization();
+
+		if (!isAuthorized) {
+			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
+		}
+
+		const existingWork = await prisma.work.findUnique({
+			where: {
+				id,
+			},
+		});
+
+		if (!existingWork) {
+			throw new Error(ERROR_TEXT.NOT_FOUND);
+		}
+
+		const slug = generateSlug(work.title);
+
+		const image = await this.fileService.saveFile('works', work.image);
+
+		await prisma.work.update({
+			where: {
+				id,
+			},
 			data: { ...work, slug, image },
 		});
 

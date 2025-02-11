@@ -39,10 +39,6 @@
 		grid-auto-flow: dense;
 		margin: 28px 0 15px;
 
-		& + div {
-			outline: 1px solid red;
-			order: 0;
-		}
 		&:nth-child(2) {
 			order: 0;
 		}

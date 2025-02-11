@@ -32,6 +32,8 @@
 }
 
 .caption {
+	@include font-face($primary-font, 500);
+
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -47,11 +49,10 @@
 
 	background-color: $primary-accent-color;
 
-	@include font-face($primary-font, 500);
-
 	font-size: 18px;
 	line-height: 1.6;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 .technologies {

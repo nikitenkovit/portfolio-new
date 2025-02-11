@@ -1,4 +1,5 @@
-export const HTTP_STATUS_CODES = {
+// FIXME: Удалить, если не понадобится
+export const HTTP_STATUS_CODE = {
 	OK: 200,
 	CREATED: 201,
 	ACCEPTED: 202,

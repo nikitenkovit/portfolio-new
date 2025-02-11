@@ -21,7 +21,7 @@ const FormSchema = z
 				required_error: 'Заполните год',
 				invalid_type_error: 'Год должен быть числом',
 			})
-			.gt(2021, { message: 'Год должен быть больше 2021' })
+			.gt(2019, { message: 'Год должен быть больше 2019' })
 			.lte(CURRENT_YEAR, { message: 'Год не может быть больше текущего' })
 			.transform(String),
 		title: z
@@ -86,9 +86,10 @@ const FormSchema = z
 	})
 	.strict();
 
-const CreateWork = FormSchema;
+const Work = FormSchema;
 
-export type CreateWorkState = {
+export type WorkActionState = {
+	id?: string;
 	fieldsValue?: {
 		year?: string | number;
 		title?: string;
@@ -109,10 +110,13 @@ export type CreateWorkState = {
 	message?: string | null;
 };
 
-export async function createWork(
-	_prevState: CreateWorkState,
+export async function createOrUpdateWork(
+	prevState: WorkActionState,
 	formData: FormData
 ) {
+	'use server';
+
+	const id = prevState.id;
 	const year = (formData.get('year') as string) || '';
 	const title = (formData.get('title') as string) || '';
 	const description = (formData.get('description') as string) || '';
@@ -121,7 +125,7 @@ export async function createWork(
 	const githubLink = (formData.get('githubLink') as string) || '';
 	const image = formData.get('image') as File;
 
-	const validatedFields = CreateWork.safeParse({
+	const validatedFields = Work.safeParse({
 		year,
 		title,
 		description,
@@ -133,6 +137,7 @@ export async function createWork(
 
 	if (!validatedFields.success) {
 		return {
+			id,
 			fieldsValue: {
 				year,
 				title,
@@ -152,7 +157,11 @@ export async function createWork(
 
 	try {
 		const workService = new WorkService();
-		slug = await workService.createWork(data);
+		if (id) {
+			slug = await workService.updateWork(id, data);
+		} else {
+			slug = await workService.createWork(data);
+		}
 	} catch (error) {
 		return {
 			fieldsValue: {
@@ -163,11 +172,12 @@ export async function createWork(
 				link,
 				githubLink,
 			},
-			message: `Database ${error}`,
+			message: `БД: ${error}`,
 		};
 	}
 
+	// TODO: Подумать над оптимизацией
 	revalidatePath(Link.Works);
+	revalidatePath(`${Link.Works}/${slug}`);
 	redirect(`${Link.Works}/${slug}`);
-	// redirect(Link.Works);
 }

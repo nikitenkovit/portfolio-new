@@ -1,17 +1,17 @@
 'use client';
 import { useAuth } from '@/app/lib/hooks/use-auth';
+import { useBoolean } from '@/app/lib/hooks/use-boolean';
 import classNames from 'classnames';
-import { useState } from 'react';
 import { MenuItem } from './menu-item';
 import { adminLink, loginLink, menuDataItems } from './menu.data';
 import styles from './menu.module.scss';
 
 export default function Menu() {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useBoolean(false);
 	const { isAuthenticated } = useAuth();
 
-	const menuToggleHandler = () => setIsMenuOpen(!isMenuOpen);
-	const menuCloseHandler = () => setIsMenuOpen(false);
+	const menuToggleHandler = () => setIsMenuOpen.toggle();
+	const menuCloseHandler = () => setIsMenuOpen.off();
 
 	return (
 		<>

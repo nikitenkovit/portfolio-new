@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useBoolean } from './use-boolean';
 
 export const useClient = () => {
-	const [isMounted, setIsMounted] = useState(false);
+	const [isMounted, setIsMounted] = useBoolean(false);
 
 	useEffect(() => {
-		setIsMounted(true);
+		setIsMounted.on();
 	}, []);
 
 	return { isMounted };
