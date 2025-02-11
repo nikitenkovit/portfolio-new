@@ -83,7 +83,7 @@ export default async function WorkPage({ params }: { params: Promise<Work> }) {
 
 			<p className={styles.description}>{work?.description}</p>
 
-			<WorkActions slug={slug} />
+			<WorkActions work={work} />
 		</div>
 	);
 }
