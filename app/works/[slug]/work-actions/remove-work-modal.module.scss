@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	padding: 30px;
+}
+.title {
+	@include font-face($primary-font, 600);
+
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+
+	span {
+		color: $primary-accent-color;
+	}
+}
+.buttonContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	@media (min-width: $breakpoint-desktop) {
+		flex-direction: row;
+	}
+}

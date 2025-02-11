@@ -13,6 +13,7 @@ import {
 	FaHome,
 	FaHtml5,
 	FaReact,
+	FaRegCheckCircle,
 	FaSass,
 	FaUser,
 } from 'react-icons/fa';
@@ -22,6 +23,7 @@ import {
 	IoIosRemoveCircleOutline,
 } from 'react-icons/io';
 import { LiaSignOutAltSolid } from 'react-icons/lia';
+import { MdDoNotDisturb } from 'react-icons/md';
 import { RiAdminLine, RiLoginCircleLine } from 'react-icons/ri';
 import {
 	SiJavascript,
@@ -67,6 +69,8 @@ export const Icons = {
 	IoIosAddCircleOutline,
 	GrEdit,
 	IoIosRemoveCircleOutline,
+	MdDoNotDisturb,
+	FaRegCheckCircle,
 };
 
 export type TypeIconName = keyof typeof Icons;

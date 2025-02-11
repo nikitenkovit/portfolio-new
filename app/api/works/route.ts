@@ -4,8 +4,8 @@ import { WorkService } from '../work/work.service';
 export async function GET() {
 	const workService = new WorkService();
 	const works = await workService.getMany();
-	// FIXME: сделать обработку ошибок
 
+	// FIXME: сделать обработку ошибок
 	return NextResponse.json(works, {
 		status: 200,
 	});

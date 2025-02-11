@@ -31,7 +31,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		});
 	}
 
-	public async createWork(work: WorkPayload): Promise<string | undefined> {
+	public async create(work: WorkPayload): Promise<string | undefined> {
 		const isAuthorized = await this.checkUserAuthorization();
 
 		if (!isAuthorized) {
@@ -40,7 +40,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 
 		const slug = generateSlug(work.title);
 
-		const image = await this.fileService.saveFile('works', work.image);
+		const image = await this.fileService.save('works', work.image);
 
 		await prisma.work.create({
 			data: { ...work, slug, image },
@@ -49,7 +49,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		return slug;
 	}
 
-	public async updateWork(
+	public async update(
 		id: string,
 		work: WorkPayload
 	): Promise<string | undefined> {
@@ -71,7 +71,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 
 		const slug = generateSlug(work.title);
 
-		const image = await this.fileService.saveFile('works', work.image);
+		const image = await this.fileService.save('works', work.image);
 
 		await prisma.work.update({
 			where: {
@@ -81,5 +81,33 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		});
 
 		return slug;
+	}
+
+	public async delete(id: string): Promise<void> {
+		const isAuthorized = await this.checkUserAuthorization();
+
+		if (!isAuthorized) {
+			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
+		}
+
+		const existingWork = await prisma.work.findUnique({
+			where: {
+				id,
+			},
+		});
+
+		if (!existingWork) {
+			throw new Error(ERROR_TEXT.NOT_FOUND);
+		}
+
+		if (existingWork.image) {
+			await this.fileService.delete(existingWork.image);
+		}
+
+		await prisma.work.delete({
+			where: {
+				id,
+			},
+		});
 	}
 }

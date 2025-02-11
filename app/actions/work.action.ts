@@ -13,6 +13,7 @@ import { Link } from '@/app/lib/types/links.type';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import { ERROR_TEXT } from '../lib/constants/auth';
 
 const FormSchema = z
 	.object({
@@ -158,9 +159,9 @@ export async function createOrUpdateWork(
 	try {
 		const workService = new WorkService();
 		if (id) {
-			slug = await workService.updateWork(id, data);
+			slug = await workService.update(id, data);
 		} else {
-			slug = await workService.createWork(data);
+			slug = await workService.create(data);
 		}
 	} catch (error) {
 		return {
@@ -180,4 +181,22 @@ export async function createOrUpdateWork(
 	revalidatePath(Link.Works);
 	revalidatePath(`${Link.Works}/${slug}`);
 	redirect(`${Link.Works}/${slug}`);
+}
+
+export async function removeWork(slug: string) {
+	const workService = new WorkService();
+
+	try {
+		await workService.delete(slug);
+	} catch (error: unknown) {
+		if (error instanceof Error) {
+			throw new Error(error.message);
+		} else {
+			throw new Error(ERROR_TEXT.SERVER);
+		}
+	}
+
+	// TODO: Подумать над оптимизацией
+	revalidatePath(Link.Works);
+	redirect(Link.Works);
 }
