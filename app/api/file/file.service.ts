@@ -1,7 +1,7 @@
 import { ERROR_TEXT } from '@/app/lib/constants/auth';
 import { DEFAULT_UPLOAD_FOLDER_NAME } from '@/app/lib/constants/common';
 import { ensureDir } from 'fs-extra';
-import { unlink, writeFile } from 'fs/promises';
+import { rmdir, unlink, writeFile } from 'fs/promises';
 import path from 'path';
 import { AuthService } from '../auth/auth.service';
 import { FileServiceInterface } from './file.interfase';
@@ -16,36 +16,40 @@ export class FileService extends AuthService implements FileServiceInterface {
 			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
 		}
 
-		try {
-			const uploadFolder = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
+		const uploadFolder = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
 
-			const url = `${uploadFolder}/${file.name}`;
+		const url = `${uploadFolder}/${file.name}`;
 
-			await ensureDir(uploadFolder);
+		await ensureDir(uploadFolder);
 
-			const fileBuffer = await file.arrayBuffer();
+		const fileBuffer = await file.arrayBuffer();
 
-			await writeFile(url, Buffer.from(fileBuffer));
+		await writeFile(url, Buffer.from(fileBuffer));
 
-			return `/${folder}/${file.name}`;
-		} catch (error) {
-			throw new Error(`${ERROR_TEXT.SAVE_FILE}: ${error}`);
-		}
+		return `/${folder}/${file.name}`;
 	}
 
-	public async delete(fileName: string): Promise<void> {
+	public async deleteFile(url: string): Promise<void> {
 		const isAuthorized = await this.checkUserAuthorization();
 
 		if (!isAuthorized) {
 			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
 		}
 
-		try {
-			const filePath = path.join(DEFAULT_UPLOAD_FOLDER_NAME, fileName);
+		const filePath = path.join(DEFAULT_UPLOAD_FOLDER_NAME, url);
 
-			await unlink(filePath);
-		} catch (error) {
-			throw new Error(`${ERROR_TEXT.DELETE_FILE}: ${error}`);
+		await unlink(filePath);
+	}
+
+	public async deleteFolder(folder: string): Promise<void> {
+		const isAuthorized = await this.checkUserAuthorization();
+
+		if (!isAuthorized) {
+			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
 		}
+
+		const folderPath = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
+
+		await rmdir(folderPath, { recursive: true });
 	}
 }

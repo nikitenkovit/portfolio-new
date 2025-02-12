@@ -1,6 +1,9 @@
 import { removeWork } from '@/app/actions/work.action';
 import { MainButtonWrapper, Modal } from '@/app/components';
 import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
+import { Link } from '@/app/lib/types/links.type';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import styles from './remove-work-modal.module.scss';
 
 export const RemoveWorkModal = ({
@@ -10,25 +13,48 @@ export const RemoveWorkModal = ({
 	onClose: () => void;
 	id: string;
 }) => {
-	const acceptHandler = () => {
-		removeWork(id);
+	const router = useRouter();
+	const [error, setError] = useState<string | undefined>();
+
+	const acceptHandler = async () => {
+		const error = await removeWork(id);
+
+		if (error) {
+			setError(error);
+		} else {
+			onClose();
+		}
 	};
+
+	useEffect(() => {
+		return () => {
+			if (error) {
+				router.push(Link.Works);
+			}
+		};
+	}, [error]);
 
 	return (
 		<Modal onClose={onClose}>
 			<ErrorBoundary>
 				<div className={styles.container}>
-					<p className={styles.title}>
-						Удалить <span>работу?</span>
-					</p>
-					<div className={styles.buttonContainer}>
-						<MainButtonWrapper iconName="FaRegCheckCircle">
-							<button onClick={acceptHandler}>Да</button>
-						</MainButtonWrapper>
-						<MainButtonWrapper iconName="MdDoNotDisturb" color="red">
-							<button onClick={onClose}>Нет</button>
-						</MainButtonWrapper>
-					</div>
+					{!error ? (
+						<>
+							<p className={styles.title}>
+								Удалить <span>работу?</span>
+							</p>
+							<div className={styles.buttonContainer}>
+								<MainButtonWrapper iconName="FaRegCheckCircle">
+									<button onClick={acceptHandler}>Да</button>
+								</MainButtonWrapper>
+								<MainButtonWrapper iconName="MdDoNotDisturb" color="red">
+									<button onClick={onClose}>Нет</button>
+								</MainButtonWrapper>
+							</div>
+						</>
+					) : (
+						<p className={styles.error}>{error}</p>
+					)}
 				</div>
 			</ErrorBoundary>
 		</Modal>

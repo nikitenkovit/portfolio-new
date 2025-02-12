@@ -183,16 +183,16 @@ export async function createOrUpdateWork(
 	redirect(`${Link.Works}/${slug}`);
 }
 
-export async function removeWork(slug: string) {
+export async function removeWork(id: string) {
 	const workService = new WorkService();
 
 	try {
-		await workService.delete(slug);
+		await workService.delete(id);
 	} catch (error: unknown) {
 		if (error instanceof Error) {
-			throw new Error(error.message);
+			return error.message;
 		} else {
-			throw new Error(ERROR_TEXT.SERVER);
+			return ERROR_TEXT.SERVER;
 		}
 	}
 
