@@ -40,11 +40,28 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 
 		const slug = generateSlug(work.title);
 
-		const image = await this.fileService.save('works', work.image);
-
-		await prisma.work.create({
-			data: { ...work, slug, image },
+		const { id } = await prisma.work.create({
+			data: { ...work, slug, image: undefined },
 		});
+
+		console.log('id', id);
+
+		if (work.image?.name && work.image.size > 0 && id) {
+			try {
+				const image = await this.fileService.save(`works/${id}`, work.image);
+
+				await prisma.work.update({
+					where: {
+						id,
+					},
+					data: { image },
+				});
+			} catch (_e) {
+				throw new Error(
+					'Новая работа успешно создана. Но произошла ошибка при сохранении изображения. Попробуйте добавить изображение через форму "Изменить"'
+				);
+			}
+		}
 
 		return slug;
 	}
@@ -71,7 +88,7 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 
 		const slug = generateSlug(work.title);
 
-		const image = await this.fileService.save('works', work.image);
+		const image = await this.fileService.save(`works/${id}`, work.image);
 
 		await prisma.work.update({
 			where: {
@@ -100,14 +117,20 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 			throw new Error(ERROR_TEXT.NOT_FOUND);
 		}
 
-		if (existingWork.image) {
-			await this.fileService.delete(existingWork.image);
-		}
-
 		await prisma.work.delete({
 			where: {
 				id,
 			},
 		});
+
+		if (existingWork.image) {
+			try {
+				await this.fileService.deleteFolder(`works/${id}`);
+			} catch (_e) {
+				throw new Error(
+					'Работа успешно удалена! Но произошла ошибка при удалении папки с изображениями!'
+				);
+			}
+		}
 	}
 }

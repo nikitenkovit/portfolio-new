@@ -25,3 +25,11 @@
 		flex-direction: row;
 	}
 }
+
+.error {
+	@include font-face($secondary-font, 50);
+
+	font-size: 18px;
+
+	color: $primary-accent-color;
+}
