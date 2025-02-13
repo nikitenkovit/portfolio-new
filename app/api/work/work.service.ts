@@ -44,8 +44,6 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 			data: { ...work, slug, image: undefined },
 		});
 
-		console.log('id', id);
-
 		if (work.image?.name && work.image.size > 0 && id) {
 			try {
 				const image = await this.fileService.save(`works/${id}`, work.image);

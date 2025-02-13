@@ -39,7 +39,6 @@ export const authConfig: AuthOptions = {
 					if (_pass && passwordsMatch) return userWithoutPass;
 				}
 
-				console.log('Invalid credentials');
 				return null;
 			},
 		}),

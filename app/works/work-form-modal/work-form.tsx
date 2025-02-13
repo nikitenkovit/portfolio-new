@@ -20,7 +20,7 @@ export const WorkForm = ({ work }: { work?: Work }) => {
 	const { inputRef } = useInputFocus();
 	const initialState: WorkActionState = {
 		id: work?.id,
-		message: null,
+		notice: null,
 		errors: {},
 		fieldsValue: {
 			title: work?.title,
@@ -31,7 +31,7 @@ export const WorkForm = ({ work }: { work?: Work }) => {
 			year: work?.year || CURRENT_YEAR,
 		},
 	};
-	const [{ message, errors, fieldsValue, id }, formAction, isPending] =
+	const [{ notice, errors, fieldsValue, id }, formAction, isPending] =
 		useActionState(createOrUpdateWork, initialState);
 
 	return (
@@ -40,7 +40,8 @@ export const WorkForm = ({ work }: { work?: Work }) => {
 			iconName={id ? 'GrEdit' : 'IoIosAddCircleOutline'}
 			buttonName={id ? 'Изменить' : 'Создать'}
 			isPending={isPending}
-			errorMessage={message}
+			notice={notice}
+			style={{ marginTop: '30px' }}
 		>
 			<Hint text={errors?.title?.join('\n\n')} variant="red">
 				<TextInput
@@ -103,7 +104,6 @@ export const WorkForm = ({ work }: { work?: Work }) => {
 				<TextareaInput
 					id="description"
 					name="description"
-					width="100%"
 					placeholder="Описание"
 					bgColor="secondary"
 					maxLength={MAX_WORK_DESCRIPTIONS_LENGTH}

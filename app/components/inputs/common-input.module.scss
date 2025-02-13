@@ -1,4 +1,6 @@
 .commonInput {
+	@include font-face($primary-font, 400);
+
 	padding: 11px 26px;
 	font-size: 15px;
 	line-height: 1.6;
@@ -8,9 +10,13 @@
 	outline: none;
 
 	&:active {
+		@include main-transition();
+
 		border-color: $primary-accent-color;
 	}
 	&:focus {
+		@include main-transition();
+
 		border-color: $primary-accent-color;
 	}
 }

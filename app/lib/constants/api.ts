@@ -14,3 +14,5 @@ export const HTTP_STATUS_CODE = {
 	BAD_GATEWAY: 502,
 	SERVICE_UNAVAILABLE: 503,
 };
+
+export const API_URL = `${process.env.APP_URL}/api`;
