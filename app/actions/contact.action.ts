@@ -19,27 +19,33 @@ const Message = z
 	});
 
 export type ContactActionState = {
+	userIP?: string | null;
 	fieldValue?: string;
 	error?: string[];
 	notice?: string;
 	isSuccess?: boolean;
 };
 
+// FIXME: export default new RedisService(); => сделать так же в других сервисах!
+
 export async function sendMessage(
-	_prevState: ContactActionState,
+	prevState: ContactActionState,
 	formData: FormData
 ) {
 	'use server';
 
+	const userIP = prevState.userIP;
 	const message = (formData.get('message') as string) || '';
 
 	const validatedFields = Message.safeParse(message);
+
+	console.log('userIP', userIP);
 
 	if (!validatedFields.success) {
 		return {
 			fieldValue: message,
 			error: validatedFields.error.formErrors.formErrors,
-			notice: 'Пропущены обязательные поля',
+			notice: 'Напишите ваше сообщение',
 		};
 	}
 
@@ -50,6 +56,7 @@ export async function sendMessage(
 		await telegramService.sendMessage(text);
 
 		return {
+			userIP,
 			notice: 'Сообщение успешно отправлено',
 			isSuccess: true,
 		};

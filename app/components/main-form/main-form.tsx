@@ -1,3 +1,5 @@
+'use client';
+import { useTimeout } from '@/app/lib/hooks/use-timeout';
 import { TypeIconName } from '@/app/lib/types/icons.types';
 import classNames from 'classnames';
 import { CSSProperties } from 'react';
@@ -28,10 +30,12 @@ export const MainForm = ({
 	style = {},
 	children,
 }: IProps) => {
+	const isNoticeActive = useTimeout(notice);
+
 	return (
 		<form action={formAction} className={styles.form} style={{ ...style }}>
 			{children}
-			{notice && (
+			{notice && (isNoticeActive || noticeVariant === 'error') && (
 				<div className={classNames(styles.notice, styles[noticeVariant])}>
 					{notice}
 				</div>

@@ -1,6 +1,5 @@
-export interface User {
-	id: string;
-	email: string;
-	password: string;
-	name: string | null;
-}
+export type UserData = {
+	ip: string | null;
+	userAgent: string | null;
+	referer: string | null;
+};
