@@ -15,6 +15,7 @@ import {
 	FaReact,
 	FaRegCheckCircle,
 	FaSass,
+	FaTelegramPlane,
 	FaUser,
 } from 'react-icons/fa';
 import { GrEdit } from 'react-icons/gr';
@@ -71,6 +72,7 @@ export const Icons = {
 	IoIosRemoveCircleOutline,
 	MdDoNotDisturb,
 	FaRegCheckCircle,
+	FaTelegramPlane,
 };
 
 export type TypeIconName = keyof typeof Icons;

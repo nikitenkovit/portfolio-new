@@ -22,9 +22,9 @@ export const headerData = {
 		subtitle: 'портфолио',
 	},
 	[Link.Contacts]: {
-		titlePart: 'связаться',
-		titlePartColor: 'со мной',
-		subtitle: 'контакты',
+		titlePart: 'Обратная',
+		titlePartColor: 'связь',
+		subtitle: 'контакт',
 	},
 	[Link.Blog]: {
 		titlePart: 'мой',

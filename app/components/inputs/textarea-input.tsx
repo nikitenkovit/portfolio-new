@@ -6,14 +6,14 @@ type BgColor = 'primary' | 'secondary';
 
 interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
 	ref?: Ref<HTMLTextAreaElement>;
-	width: string;
+	width?: string;
 	bgColor?: BgColor;
 	rows?: number;
 }
 
 export const TextareaInput = ({
 	ref,
-	width,
+	width = '100%',
 	bgColor = 'primary',
 	rows,
 	...restProps

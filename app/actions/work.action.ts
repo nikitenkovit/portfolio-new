@@ -108,7 +108,7 @@ export type WorkActionState = {
 		githubLink?: string[];
 		image?: string[];
 	};
-	message?: string | null;
+	notice?: string | null;
 };
 
 export async function createOrUpdateWork(
@@ -148,7 +148,7 @@ export async function createOrUpdateWork(
 				githubLink,
 			},
 			errors: validatedFields.error.flatten().fieldErrors,
-			message: 'Пропущены обязательные поля',
+			notice: 'Пропущены обязательные поля',
 		};
 	}
 
@@ -173,7 +173,7 @@ export async function createOrUpdateWork(
 				link,
 				githubLink,
 			},
-			message: `БД: ${error}`,
+			notice: `БД: ${error}`,
 		};
 	}
 
