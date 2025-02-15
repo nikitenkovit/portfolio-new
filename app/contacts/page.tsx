@@ -1,7 +1,7 @@
 import { ContactForm } from './contact-form';
 import styles from './page.module.scss';
 
-export default function About() {
+export default async function Contact() {
 	return (
 		<main className={styles.main}>
 			<div className={styles.container}>

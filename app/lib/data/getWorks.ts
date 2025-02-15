@@ -3,6 +3,7 @@ import { ERROR_TEXT } from '../constants/auth';
 import { getWorksUrl, getWorkUrl } from '../utils/api';
 
 export async function getWork(slug: string): Promise<Work> {
+	// вызывается в серверном компоненте. не требует useQuery
 	const response = await fetch(getWorkUrl(slug));
 
 	const work = await response.json();
@@ -15,6 +16,7 @@ export async function getWork(slug: string): Promise<Work> {
 }
 
 export async function getWorks(): Promise<Work[]> {
+	// вызывается в серверном компоненте. не требует useQuery
 	const response = await fetch(getWorksUrl());
 	const works = await response.json();
 	return works;

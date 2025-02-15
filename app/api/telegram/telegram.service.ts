@@ -1,5 +1,5 @@
+import { getTelegramConfig } from '@/app/configs/telegram.config';
 import { ITelegramOptions } from '@/app/lib/types/telegram-config.interface';
-import { getTelegramConfig } from '@/app/lib/utils/api';
 import { Telegraf } from 'telegraf';
 import { TelegramServiceInterface } from './telegram.interface';
 
