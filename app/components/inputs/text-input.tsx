@@ -8,12 +8,15 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	ref?: Ref<HTMLInputElement>;
 	width: string;
 	bgColor?: BgColor;
+	hidden?: boolean;
 }
 
 export const TextInput = ({
 	ref,
 	width,
 	bgColor = 'primary',
+	hidden = false,
+	disabled = false,
 	...restProps
 }: IProps) => {
 	return (
@@ -22,6 +25,8 @@ export const TextInput = ({
 			ref={ref}
 			style={{ width }}
 			className={classNames(commonStyles.commonInput, {
+				[commonStyles.hidden]: hidden,
+				[commonStyles.disabled]: disabled,
 				[commonStyles.primary]: bgColor === 'primary',
 				[commonStyles.secondary]: bgColor === 'secondary',
 			})}

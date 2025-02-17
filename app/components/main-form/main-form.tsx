@@ -1,9 +1,10 @@
 'use client';
 import { useTimeout } from '@/app/lib/hooks/use-timeout';
 import { TypeIconName } from '@/app/lib/types/icons.types';
-import classNames from 'classnames';
+import { NotificationStatus } from '@/app/lib/types/notification-status.type';
 import { CSSProperties } from 'react';
 import { MainButtonWrapper } from '../main-button-wrapper';
+import { Notice } from '../notice/notice';
 import styles from './main-form.module.scss';
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IProps {
 		| undefined;
 	children: React.ReactNode;
 	notice?: string | null;
-	noticeVariant?: 'success' | 'error';
+	noticeVariant?: NotificationStatus;
 	isPending?: boolean;
 	iconName: TypeIconName;
 	buttonName: string;
@@ -23,22 +24,22 @@ interface IProps {
 export const MainForm = ({
 	formAction,
 	notice,
-	noticeVariant = 'error',
+	noticeVariant = NotificationStatus.Error,
 	isPending,
 	iconName,
 	buttonName,
 	style = {},
 	children,
 }: IProps) => {
-	const isNoticeActive = useTimeout(notice);
+	const isTimeAvailable = useTimeout(notice);
+	const isNoticeAvailable =
+		noticeVariant === NotificationStatus.Error || isTimeAvailable;
 
 	return (
 		<form action={formAction} className={styles.form} style={{ ...style }}>
 			{children}
-			{notice && (isNoticeActive || noticeVariant === 'error') && (
-				<div className={classNames(styles.notice, styles[noticeVariant])}>
-					{notice}
-				</div>
+			{isNoticeAvailable && (
+				<Notice notice={notice} noticeVariant={noticeVariant} />
 			)}
 			<MainButtonWrapper iconName={iconName} pending={isPending}>
 				<button type="submit">{buttonName}</button>

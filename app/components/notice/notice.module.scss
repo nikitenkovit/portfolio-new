@@ -1,0 +1,25 @@
+.notice {
+	@include font-face($secondary-font, 500);
+
+	padding: 10px;
+	background-color: $dark-background-color;
+	font-size: 14px;
+	border-radius: 10px;
+	border-width: 1px;
+	border-style: solid;
+}
+.success {
+	border-color: $primary-accent-color;
+}
+
+.warning {
+	border-color: $warning-color;
+}
+
+.error {
+	border-color: $danger-color;
+}
+
+.info {
+	border-color: $white-color;
+}

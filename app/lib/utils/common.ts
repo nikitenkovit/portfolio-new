@@ -14,3 +14,5 @@ export const getAuthError = (error?: string | null) => {
 
 	return ERROR_TEXT.ANY;
 };
+
+export const getCurrentTimeInSecond = () => Date.now() / 1000;
