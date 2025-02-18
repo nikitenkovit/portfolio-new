@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
 		},
 	},
 	sassOptions: {
-		includePaths: [path.join(__dirname, '/app/styles')],
+		includePaths: [path.join(__dirname, '/app/lib/styles')],
 		prependData: `@import "bootstrap.scss";`,
 		silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
 	},
