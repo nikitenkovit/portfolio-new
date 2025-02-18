@@ -1,14 +1,12 @@
 import { Telegraf } from 'telegraf';
 
 import { ITelegramOptions } from '@/app/lib/types/telegram-config.interface';
-import { getTelegramConfig } from '../../lib/configs';
-import { ONE_MINUTE_IN_SECONDS } from '../../lib/constants';
-import {
-	getCurrentTimeInSecond,
-	getTelegramWarningMessage,
-} from '../../lib/utils';
+import { getTelegramConfig } from '../../configs';
+import { ONE_MINUTE_IN_SECONDS } from '../../constants';
+import { getCurrentTimeInSecond, getTelegramWarningMessage } from '../../utils';
 import { CacheService } from '../cache';
 import { TelegramServiceInterface } from './telegram.interface';
+
 class TelegramService implements TelegramServiceInterface {
 	private bot: Telegraf;
 	private options: ITelegramOptions;

@@ -1,8 +1,8 @@
 import type { RedisClientType } from 'redis';
 import { createClient } from 'redis';
 // FIXME: Сдлеать все что импортируется из lib, что бы импортировалось по индекс файлу!
-import { ONE_HOUR_IN_SECONDS } from '../../lib/constants/common';
-import { getCurrentTimeInSecond } from '../../lib/utils/common';
+import { ONE_HOUR_IN_SECONDS } from '../../constants';
+import { getCurrentTimeInSecond } from '../../utils';
 import { CacheServiceInterface } from './cache.interface';
 
 // redis-server - запуск локально в проекте

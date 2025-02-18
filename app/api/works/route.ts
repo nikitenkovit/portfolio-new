@@ -1,4 +1,4 @@
-import { WorkService } from '@/app/services';
+import { WorkService } from '@/app/lib/services';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

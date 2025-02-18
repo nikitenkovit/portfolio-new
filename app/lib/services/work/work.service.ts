@@ -1,8 +1,8 @@
 import { Work } from '@prisma/client';
-import { ERROR_TEXT } from '../../lib/constants';
-import { prisma } from '../../lib/db';
-import { WorkPayload } from '../../lib/types/work.type';
-import { generateSlug } from '../../lib/utils';
+import { ERROR_TEXT } from '../../constants';
+import { prisma } from '../../db';
+import { WorkPayload } from '../../types/work.type';
+import { generateSlug } from '../../utils';
 import { AuthService } from '../auth';
 import { FileService } from '../file';
 import { WorkServiceInterface } from './work.interface';

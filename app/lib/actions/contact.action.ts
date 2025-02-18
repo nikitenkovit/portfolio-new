@@ -1,11 +1,11 @@
 'use server';
 
-import { TelegramService } from '@/app/services';
 import { z } from 'zod';
 import {
 	MAX_WORK_DESCRIPTIONS_LENGTH,
 	MIN_WORK_TEXT_LENGTH,
 } from '../constants';
+import { TelegramService } from '../services';
 import { NotificationStatus } from '../types/notification-status.type';
 
 const Message = z

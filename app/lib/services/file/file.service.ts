@@ -1,7 +1,7 @@
 import { ensureDir } from 'fs-extra';
 import { rmdir, unlink, writeFile } from 'fs/promises';
 import path from 'path';
-import { DEFAULT_UPLOAD_FOLDER_NAME, ERROR_TEXT } from '../../lib/constants';
+import { DEFAULT_UPLOAD_FOLDER_NAME, ERROR_TEXT } from '../../constants';
 import { AuthService } from '../auth';
 import { FileServiceInterface } from './file.interface';
 

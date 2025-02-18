@@ -1,6 +1,6 @@
-import { ERROR_TEXT } from '@/app/lib/constants/auth';
+import { ERROR_TEXT } from '@/app/lib/constants';
+import { WorkService } from '@/app/lib/services';
 import { NextRequest, NextResponse } from 'next/server';
-import { WorkService } from '../../services';
 
 export async function GET(request: NextRequest) {
 	const slug = request.nextUrl.searchParams.get('slug');

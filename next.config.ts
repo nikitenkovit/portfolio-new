@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { ServiceInitializer } from './app/services';
+import { ServiceInitializer } from './app/lib/services';
 const path = require('path');
 
 const nextConfig: NextConfig = {

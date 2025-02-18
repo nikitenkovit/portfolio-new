@@ -1,4 +1,4 @@
-import { CacheService } from '../cache/cache.service';
+import { CacheService } from '../cache';
 import { InitializerServiceInterface } from './initializer.interface';
 
 class ServiceInitializer implements InitializerServiceInterface {

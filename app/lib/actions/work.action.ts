@@ -1,6 +1,5 @@
 'use server';
 
-import { WorkService } from '@/app/services';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
@@ -13,6 +12,7 @@ import {
 	MAX_WORK_TITLE_LENGTH,
 	MIN_WORK_TEXT_LENGTH,
 } from '../constants';
+import { WorkService } from '../services';
 import { Link } from '../types/links.type';
 
 const FormSchema = z
