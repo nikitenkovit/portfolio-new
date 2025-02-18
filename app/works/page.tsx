@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { getWorks } from '../lib/data/getWorks';
+import { getWorks } from '../lib/data';
 import styles from './page.module.scss';
 import { WorkList } from './work-list';
 

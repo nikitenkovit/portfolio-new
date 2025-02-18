@@ -1,6 +1,6 @@
 import { Work } from '@prisma/client';
-import { ERROR_TEXT } from '../constants/auth';
-import { getWorksUrl, getWorkUrl } from '../utils/api';
+import { ERROR_TEXT } from '../constants';
+import { getWorksUrl, getWorkUrl } from '../utils';
 
 export async function getWork(slug: string): Promise<Work> {
 	// вызывается в серверном компоненте. не требует useQuery

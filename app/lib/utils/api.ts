@@ -1,4 +1,4 @@
-import { API_URL } from '../constants/api';
+import { API_URL } from '../constants';
 
 // FIXME: Сделать получения адресов везде через функции
 export const getWorkUrl = (slug: string) => `${API_URL}/work?slug=${slug}`;

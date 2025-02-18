@@ -1,4 +1,4 @@
-import { getAge, getExperience } from '@/app/lib/utils/common';
+import { getAge, getExperience } from '@/app/lib/utils';
 
 export const personalInfos = [
 	{

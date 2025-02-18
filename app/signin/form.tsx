@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
 import { Hint, MainButtonWrapper, TextInput } from '../lib/components';
 import { AppLink } from '../lib/types';
-import { getAuthError } from '../lib/utils/common';
+import { getAuthError } from '../lib/utils';
 import styles from './form.module.scss';
 
 export function SignInForm() {
