@@ -1,5 +1,5 @@
-import { Icon } from '@/app/components/icons/icon-component';
-import { getWork, getWorks } from '@/app/lib/data/getWorks';
+import { Icon } from '@/app/lib/components';
+import { getWork, getWorks } from '@/app/lib/data';
 import { Work } from '@prisma/client';
 import Image from 'next/image';
 import { WorkActions } from './work-actions/work-actions';

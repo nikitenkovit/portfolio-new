@@ -1,7 +1,7 @@
 'use client';
 
-import { MainButtonWrapper } from './components';
 import styles from './error.module.scss';
+import { MainButtonWrapper } from './lib/components';
 
 export default function Error({
 	error,

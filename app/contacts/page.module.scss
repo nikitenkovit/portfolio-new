@@ -1,7 +1,3 @@
-.main {
-	overflow: visible;
-}
-
 .container {
 	display: grid;
 	gap: 30px;
@@ -9,12 +5,14 @@
 	margin: 0 auto;
 	padding: 90px 25px;
 	text-align: left;
-	overflow: visible;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 0 0 80px;
+	}
 
 	@media (min-width: $breakpoint-desktop) {
 		grid-template-columns: 0.6fr 1fr;
 		max-width: calc(100% - 195px);
-		padding: 0 0 80px;
 	}
 
 	@media (min-width: 1351px) {
@@ -53,7 +51,6 @@
 }
 
 .formContainer {
-	overflow: visible;
 	@media (min-width: $breakpoint-desktop) {
 		padding: 0 16px;
 	}

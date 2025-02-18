@@ -1,7 +1,6 @@
 'use client';
 
-import { Modal } from '@/app/components';
-import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
+import { ErrorBoundary, Modal } from '@/app/lib/components';
 import { Work } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import { WorkForm } from './work-form';

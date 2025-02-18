@@ -1,7 +1,7 @@
 'use client';
 import { useQuery, UseQueryResult } from 'react-query';
-import { UserData } from '../types/user.type';
-import { getUserDataUrl } from '../utils/api';
+import type { UserData } from '../types';
+import { getUserDataUrl } from '../utils';
 
 export const useUserData = (): UseQueryResult<UserData> => {
 	return useQuery({

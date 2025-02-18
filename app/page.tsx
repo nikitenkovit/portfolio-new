@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MainButtonWrapper } from './components';
+import { MainButtonWrapper } from './lib/components';
 import styles from './page.module.scss';
 
 export default function Home() {
+	// TODO: Подумать над круглой фотографией на версии для планшета. Сделать квадратной?
 	return (
 		<main className={styles.main}>
 			<div className={styles.wrapper}>

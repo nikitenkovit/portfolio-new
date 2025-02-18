@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { ServiceInitializer } from './app/services';
+import { ServiceInitializer } from './app/lib/services';
 const path = require('path');
 
 const nextConfig: NextConfig = {
@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
 		},
 	},
 	sassOptions: {
-		includePaths: [path.join(__dirname, '/app/styles')],
+		includePaths: [path.join(__dirname, '/app/lib/styles')],
 		prependData: `@import "bootstrap.scss";`,
 		silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
 	},

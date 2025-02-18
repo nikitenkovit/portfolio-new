@@ -1,0 +1,113 @@
+.menuToggle {
+	position: fixed;
+	top: 25px;
+	right: 25px;
+	width: 49px;
+	height: 49px;
+	background-color: $dark-background-menu-color;
+	border-radius: 5px;
+	z-index: 5;
+	cursor: pointer;
+
+	&::before {
+		@include main-transition();
+
+		content: '';
+		position: absolute;
+		top: 17px;
+		left: 13px;
+		width: 23px;
+		height: 2px;
+		background-color: $white-color;
+		box-shadow: 0 6.5px 0 0 $white-color;
+	}
+
+	&::after {
+		@include main-transition();
+
+		content: '';
+		position: absolute;
+		bottom: 17px;
+		left: 13px;
+		width: 23px;
+		height: 2px;
+		background-color: $white-color;
+	}
+
+	&.opened {
+		&::before {
+			position: absolute;
+			top: 50%;
+			box-shadow: none;
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			position: absolute;
+			top: 50%;
+			bottom: auto;
+			transform: rotate(-45deg);
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		top: 30px;
+		right: 30px;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		display: none;
+	}
+}
+
+.list {
+	@include main-transition();
+
+	position: fixed;
+	top: 0;
+	left: -190%;
+	width: 100%;
+	height: 100dvh;
+	padding: 60px 0 0;
+	background-color: $dark-background-menu-color;
+	z-index: 4;
+
+	&.opened {
+		@media (max-width: 991px) {
+			left: 0;
+		}
+	}
+
+	& :not(:last-child) a {
+		border-bottom: 1px solid $line-color;
+	}
+
+	& :nth-last-child(2) a {
+		border-bottom: none;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		position: fixed;
+		top: 110px;
+		left: auto;
+		right: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: calc(100dvh - 200px);
+		padding: 0;
+		background-color: transparent;
+		border-bottom: none;
+
+		& :not(:last-child) a {
+			border-bottom: none;
+		}
+	}
+}
+
+html:has(.opened) {
+	overflow: hidden;
+	scrollbar-gutter: stable;
+}

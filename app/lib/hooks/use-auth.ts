@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { AuthStatus } from '../constants/auth';
+import { AuthStatus } from '../constants';
 
 export const useAuth = () => {
 	const session = useSession();

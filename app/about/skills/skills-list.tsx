@@ -1,4 +1,4 @@
-import { Icon } from '@/app/components/icons/icon-component';
+import { Icon } from '@/app/lib/components';
 import styles from './skills-list.module.scss';
 import { skills } from './skills.data';
 

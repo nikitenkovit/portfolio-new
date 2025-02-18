@@ -1,4 +1,4 @@
-import { getWork, getWorks } from '@/app/lib/data/getWorks';
+import { getWork, getWorks } from '@/app/lib/data';
 import { Work } from '@prisma/client';
 import { WorkFormModal } from '../../work-form-modal/work-form-modal';
 

@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 
-import { Header } from './components';
-import Menu from './components/menu/menu';
-import { Providers } from './components/providers/providers';
-import './styles/globals.scss';
+import {
+	Header,
+	Menu,
+	Providers,
+	UtilityServiceCaller,
+} from './lib/components';
+import './lib/styles/globals.scss';
 
 const montserrat = Montserrat({
 	weight: ['500', '600', '700', '800', '900'],
@@ -39,6 +42,7 @@ export default function RootLayout({
 		<html lang="ru">
 			<body className={`${montserrat.variable} ${openSans.variable}`}>
 				<Providers>
+					<UtilityServiceCaller />
 					<div id="modal-root" className="modal-root" />
 					<Header />
 					<Menu />

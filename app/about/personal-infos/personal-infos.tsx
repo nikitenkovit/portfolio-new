@@ -1,5 +1,5 @@
 'use client';
-import { MainButtonWrapper } from '@/app/components';
+import { MainButtonWrapper } from '@/app/lib/components';
 import { saveAs } from 'file-saver';
 import Image from 'next/image';
 import { personalInfos } from './personal-infos.data';
@@ -7,8 +7,10 @@ import styles from './personal-infos.module.scss';
 
 export const PersonalInfos = () => {
 	const clickHandler = () => {
+		// FIXME: Скрыть кнопку!!!!
 		saveAs('/test.txt', 'myDocument.txt');
 	};
+	// TODO: Подумать над круглой фотографией на версии для планшета. Сделать квадратной?
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>Личная информация</h2>

@@ -1,17 +1,14 @@
 'use client';
 
-import { createOrUpdateWork, WorkActionState } from '@/app/actions/work.action';
-import { TextInput } from '@/app/components';
-import { Hint } from '@/app/components/hint/hint';
-import { TextareaInput } from '@/app/components/inputs/textarea-input';
-import { MainForm } from '@/app/components/main-form/main-form';
-import { CURRENT_YEAR } from '@/app/lib/constants/common';
+import { createOrUpdateWork, WorkActionState } from '@/app/lib/actions';
+import { Hint, MainForm, TextareaInput, TextInput } from '@/app/lib/components';
 import {
+	CURRENT_YEAR,
 	MAX_WORK_DESCRIPTIONS_LENGTH,
 	MAX_WORK_TEXT_LENGTH,
 	MAX_WORK_TITLE_LENGTH,
-} from '@/app/lib/constants/works';
-import { useInputFocus } from '@/app/lib/hooks/use-input-focus';
+} from '@/app/lib/constants';
+import { useInputFocus } from '@/app/lib/hooks';
 import { Work } from '@prisma/client';
 import { MutableRefObject, useActionState } from 'react';
 import styles from './work-form.module.scss';

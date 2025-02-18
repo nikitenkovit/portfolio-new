@@ -1,12 +1,12 @@
 'use client';
 
 import { signOut } from 'next-auth/react';
-import { MainButtonWrapper } from '../components';
-import { Link } from '../lib/types/links.type';
+import { MainButtonWrapper } from '../lib/components';
+import { AppLink } from '../lib/types';
 import styles from './admin.module.scss';
 
 export const AdminContainer = () => {
-	const logoutHandler = () => signOut({ callbackUrl: Link.Home });
+	const logoutHandler = () => signOut({ callbackUrl: AppLink.Home });
 
 	return (
 		<div className={styles.container}>

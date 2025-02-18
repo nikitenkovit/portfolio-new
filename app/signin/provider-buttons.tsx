@@ -3,13 +3,13 @@
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import { MainButtonWrapper } from '../components';
-import { Link } from '../lib/types/links.type';
+import { MainButtonWrapper } from '../lib/components';
+import { AppLink } from '../lib/types';
 import styles from './provider-buttons.module.scss';
 
 const Buttons = () => {
 	const searchParams = useSearchParams();
-	const callbackUrl = searchParams.get('callbackUrl') || Link.Admin;
+	const callbackUrl = searchParams.get('callbackUrl') || AppLink.Admin;
 
 	// FIXME: сделать вывод об ошибке
 	return (

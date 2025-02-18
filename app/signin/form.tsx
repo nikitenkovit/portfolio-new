@@ -2,10 +2,9 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
-import { MainButtonWrapper, TextInput } from '../components';
-import { Hint } from '../components/hint/hint';
-import { Link } from '../lib/types/links.type';
-import { getAuthError } from '../lib/utils/common';
+import { Hint, MainButtonWrapper, TextInput } from '../lib/components';
+import { AppLink } from '../lib/types';
+import { getAuthError } from '../lib/utils';
 import styles from './form.module.scss';
 
 export function SignInForm() {
@@ -27,7 +26,7 @@ export function SignInForm() {
 		});
 
 		if (res && !res.error) {
-			router.push(Link.Admin);
+			router.push(AppLink.Admin);
 		} else {
 			setError(getAuthError(res?.error));
 		}

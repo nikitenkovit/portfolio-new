@@ -1,8 +1,7 @@
 'use client';
 
-import { MainButtonWrapper } from '@/app/components';
-import { useAuth } from '@/app/lib/hooks/use-auth';
-import { useBoolean } from '@/app/lib/hooks/use-boolean';
+import { MainButtonWrapper } from '@/app/lib/components';
+import { useAuth, useBoolean } from '@/app/lib/hooks';
 import { Work } from '@prisma/client';
 import Link from 'next/link';
 import { RemoveWorkModal } from './remove-work-modal';

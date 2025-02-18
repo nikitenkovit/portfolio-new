@@ -53,6 +53,7 @@
 		margin: 0 auto;
 		border: 4px solid $dark-background-menu-color;
 		border-radius: 50%;
+		overflow: hidden;
 	}
 	@media (min-width: $breakpoint-desktop) {
 		position: fixed;
