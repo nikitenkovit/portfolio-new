@@ -5,3 +5,16 @@ export const CURRENT_YEAR = new Date().getFullYear();
 export const DEFAULT_UPLOAD_FOLDER_NAME = 'public';
 
 export const DEFAULT_DELAY = 7000;
+
+export const ERROR_TEXT = {
+	AUTH_CREDENTIALS:
+		'Ошибка авторизации. Пожалуйста, проверьте правильность введенных данных',
+	ANY: 'Что-то пошло не так. Пожалуйста, попробуйте еще раз',
+	NOT_AUTHORIZED: 'Вы не авторизованы',
+	FETCH_USER: 'Ошибка при получении пользователя',
+	SAVE_FILE: 'Ошибка при сохранении файла',
+	SERVER: 'Ошибка работы сервера',
+	OUTPUT_DATA: 'Недостаточно исходящих данных или данные неверны',
+	NOT_FOUND: 'Данные не найдены. Проверьте запрос и попробуйте снова.',
+	DELETE_FILE: 'Не удалось удалить файл',
+};

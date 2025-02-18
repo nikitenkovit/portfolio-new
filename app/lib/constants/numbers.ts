@@ -1,4 +1,3 @@
-// FIXE: Переименовать файл. Потому что константы используются не только в работах
 export const MIN_WORK_TEXT_LENGTH = 3;
 export const MAX_WORK_TEXT_LENGTH = 70;
 export const MAX_WORK_TITLE_LENGTH = 50;
