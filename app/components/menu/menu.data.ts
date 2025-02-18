@@ -1,42 +1,42 @@
-import { Link } from '@/app/lib/types/links.type';
-import { IMenuItem } from '@/app/lib/types/menu.types';
+import type { IMenuItem } from '@/app/lib/types';
+import { AppLink } from '@/app/lib/types';
 
 export const menuDataItems: IMenuItem[] = [
 	{
 		title: 'Главная',
-		link: Link.Home,
+		link: AppLink.Home,
 		icon: 'FaHome',
 	},
 	{
 		title: 'Oбо мне',
-		link: Link.About,
+		link: AppLink.About,
 		icon: 'FaUser',
 	},
 	{
 		title: 'Работы',
-		link: Link.Works,
+		link: AppLink.Works,
 		icon: 'FaBriefcase',
 	},
 	{
 		title: 'Контакты',
-		link: Link.Contacts,
+		link: AppLink.Contacts,
 		icon: 'FaEnvelopeOpen',
 	},
 	{
 		title: 'Блог',
-		link: Link.Blog,
+		link: AppLink.Blog,
 		icon: 'FaComments',
 	},
 ];
 
 export const loginLink: IMenuItem = {
 	title: 'Войти',
-	link: Link.Signin,
+	link: AppLink.Signin,
 	icon: 'RiLoginCircleLine',
 };
 
 export const adminLink: IMenuItem = {
 	title: 'Админка',
-	link: Link.Admin,
+	link: AppLink.Admin,
 	icon: 'RiAdminLine',
 };

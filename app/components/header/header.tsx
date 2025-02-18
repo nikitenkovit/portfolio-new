@@ -1,12 +1,12 @@
 'use client';
-import { Link } from '@/app/lib/types/links.type';
+import { AppLink } from '@/app/lib/types';
 import { getSegment } from '@/app/lib/utils/common';
 import { usePathname } from 'next/navigation';
 import { headerData } from './header.data';
 import styles from './header.module.scss';
 
 export const Header = () => {
-	const pathname = getSegment(usePathname()) as Link;
+	const pathname = getSegment(usePathname()) as AppLink;
 	const data = headerData[pathname] || {};
 	const { titlePart, titlePartColor, subtitle } = data;
 

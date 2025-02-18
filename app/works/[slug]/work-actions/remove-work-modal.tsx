@@ -1,7 +1,7 @@
 import { MainButtonWrapper, Modal } from '@/app/components';
 import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
 import { removeWork } from '@/app/lib/actions';
-import { Link } from '@/app/lib/types/links.type';
+import { AppLink } from '@/app/lib/types';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from './remove-work-modal.module.scss';
@@ -29,7 +29,7 @@ export const RemoveWorkModal = ({
 	useEffect(() => {
 		return () => {
 			if (error) {
-				router.push(Link.Works);
+				router.push(AppLink.Works);
 			}
 		};
 	}, [error]);

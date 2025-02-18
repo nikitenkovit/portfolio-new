@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
 import { MainButtonWrapper, TextInput } from '../components';
 import { Hint } from '../components/hint/hint';
-import { Link } from '../lib/types/links.type';
+import { AppLink } from '../lib/types';
 import { getAuthError } from '../lib/utils/common';
 import styles from './form.module.scss';
 
@@ -27,7 +27,7 @@ export function SignInForm() {
 		});
 
 		if (res && !res.error) {
-			router.push(Link.Admin);
+			router.push(AppLink.Admin);
 		} else {
 			setError(getAuthError(res?.error));
 		}

@@ -1,4 +1,4 @@
-import { WorkPayload } from '@/app/lib/types/work.type';
+import type { WorkPayload } from '@/app/lib/types';
 import { Work } from '@prisma/client';
 
 export interface WorkServiceInterface {

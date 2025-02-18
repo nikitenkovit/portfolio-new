@@ -1,4 +1,5 @@
-import { Icons, TypeIconName } from '@/app/lib/types/icons.types';
+import type { TypeIconName } from '@/app/lib/types';
+import { Icons } from '@/app/lib/types';
 
 export const Icon = ({ name }: { name: TypeIconName }) => {
 	const IconComponent = Icons[name];

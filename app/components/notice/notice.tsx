@@ -1,4 +1,4 @@
-import { NotificationStatus } from '@/app/lib/types/notification-status.type';
+import { NotificationStatus } from '@/app/lib/types';
 import classNames from 'classnames';
 import styles from './notice.module.scss';
 

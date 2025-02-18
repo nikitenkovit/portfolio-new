@@ -1,6 +1,6 @@
-import { ITelegramOptions } from '../types/telegram-config.interface';
+import type { TelegramOptions } from '../types';
 
-export const getTelegramConfig = (): ITelegramOptions => ({
+export const getTelegramConfig = (): TelegramOptions => ({
 	chatId: process.env.TELEGRAM_CHAT_ID!,
 	token: process.env.TELEGRAM_TOKEN!,
 });

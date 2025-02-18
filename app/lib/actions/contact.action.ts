@@ -6,7 +6,7 @@ import {
 	MIN_WORK_TEXT_LENGTH,
 } from '../constants';
 import { TelegramService } from '../services';
-import { NotificationStatus } from '../types/notification-status.type';
+import { NotificationStatus } from '../types';
 
 const Message = z
 	.string({

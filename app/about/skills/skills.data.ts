@@ -1,4 +1,4 @@
-import { TypeIconName } from '@/app/lib/types/icons.types';
+import type { TypeIconName } from '@/app/lib/types';
 
 type Skill = { name: string; icon: TypeIconName };
 

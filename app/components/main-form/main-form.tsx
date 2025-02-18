@@ -1,7 +1,7 @@
 'use client';
 import { useTimeout } from '@/app/lib/hooks/use-timeout';
-import { TypeIconName } from '@/app/lib/types/icons.types';
-import { NotificationStatus } from '@/app/lib/types/notification-status.type';
+import type { TypeIconName } from '@/app/lib/types';
+import { NotificationStatus } from '@/app/lib/types';
 import { CSSProperties } from 'react';
 import { MainButtonWrapper } from '../main-button-wrapper';
 import { Notice } from '../notice/notice';

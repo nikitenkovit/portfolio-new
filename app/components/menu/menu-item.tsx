@@ -1,6 +1,6 @@
 'use client';
 
-import { IMenuItem } from '@/app/lib/types/menu.types';
+import type { IMenuItem } from '@/app/lib/types';
 import { getSegment } from '@/app/lib/utils/common';
 import classNames from 'classnames';
 import Link from 'next/link';

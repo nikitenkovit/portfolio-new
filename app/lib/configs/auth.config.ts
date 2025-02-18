@@ -5,7 +5,7 @@ import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { z } from 'zod';
 import { AuthService } from '../services';
-import { Link } from '../types/links.type';
+import { AppLink } from '../types';
 
 export const authConfig: AuthOptions = {
 	providers: [
@@ -44,6 +44,6 @@ export const authConfig: AuthOptions = {
 		}),
 	],
 	pages: {
-		signIn: Link.Signin,
+		signIn: AppLink.Signin,
 	},
 };

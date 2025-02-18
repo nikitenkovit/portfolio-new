@@ -1,4 +1,4 @@
-import { TypeIconName } from '@/app/lib/types/icons.types';
+import type { TypeIconName } from '@/app/lib/types';
 import classNames from 'classnames';
 import { Icon } from '../icons/icon-component';
 import styles from './main-button-wrapper.module.scss';

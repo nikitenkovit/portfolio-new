@@ -5,7 +5,7 @@ import { TextareaInput } from '../components/inputs/textarea-input';
 import { MainForm } from '../components/main-form/main-form';
 import { ContactActionState, sendMessage } from '../lib/actions';
 import { useUserData } from '../lib/hooks/use-user-data';
-import { NotificationStatus } from '../lib/types/notification-status.type';
+import { NotificationStatus } from '../lib/types';
 
 export const ContactForm = () => {
 	const { data: userData } = useUserData();

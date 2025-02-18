@@ -1,4 +1,4 @@
-export enum Link {
+export enum AppLink {
 	Home = '/',
 	About = '/about',
 	Works = '/works',

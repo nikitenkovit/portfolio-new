@@ -1,42 +1,42 @@
-import { Link } from '@/app/lib/types/links.type';
+import { AppLink } from '@/app/lib/types';
 
 export const headerData = {
-	[Link.Empty]: {
+	[AppLink.Empty]: {
 		titlePart: '',
 		titlePartColor: '',
 		subtitle: '',
 	},
-	[Link.Home]: {
+	[AppLink.Home]: {
 		titlePart: '',
 		titlePartColor: '',
 		subtitle: '',
 	},
-	[Link.About]: {
+	[AppLink.About]: {
 		titlePart: 'обо',
 		titlePartColor: 'мне',
 		subtitle: 'резюме',
 	},
-	[Link.Works]: {
+	[AppLink.Works]: {
 		titlePart: 'новые',
 		titlePartColor: 'работы',
 		subtitle: 'портфолио',
 	},
-	[Link.Contacts]: {
+	[AppLink.Contacts]: {
 		titlePart: 'Обратная',
 		titlePartColor: 'связь',
 		subtitle: 'контакт',
 	},
-	[Link.Blog]: {
+	[AppLink.Blog]: {
 		titlePart: 'мой',
 		titlePartColor: 'блог',
 		subtitle: 'посты',
 	},
-	[Link.Signin]: {
+	[AppLink.Signin]: {
 		titlePart: 'вход',
 		titlePartColor: 'для админа',
 		subtitle: 'вход',
 	},
-	[Link.Admin]: {
+	[AppLink.Admin]: {
 		titlePart: 'панель',
 		titlePartColor: 'админа',
 		subtitle: 'Управление',

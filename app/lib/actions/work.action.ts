@@ -13,7 +13,7 @@ import {
 	MIN_WORK_TEXT_LENGTH,
 } from '../constants';
 import { WorkService } from '../services';
-import { Link } from '../types/links.type';
+import { AppLink } from '../types';
 
 const FormSchema = z
 	.object({
@@ -177,9 +177,9 @@ export async function createOrUpdateWork(
 	}
 
 	// TODO: Подумать над оптимизацией
-	revalidatePath(Link.Works);
-	revalidatePath(`${Link.Works}/${slug}`);
-	redirect(`${Link.Works}/${slug}`);
+	revalidatePath(AppLink.Works);
+	revalidatePath(`${AppLink.Works}/${slug}`);
+	redirect(`${AppLink.Works}/${slug}`);
 }
 
 export async function removeWork(id: string) {
@@ -194,6 +194,6 @@ export async function removeWork(id: string) {
 	}
 
 	// TODO: Подумать над оптимизацией
-	revalidatePath(Link.Works);
-	redirect(Link.Works);
+	revalidatePath(AppLink.Works);
+	redirect(AppLink.Works);
 }
