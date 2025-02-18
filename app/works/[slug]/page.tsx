@@ -1,5 +1,4 @@
-import { Modal } from '@/app/components';
-import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
+import { ErrorBoundary, Modal } from '@/app/lib/components';
 import { getWorks } from '@/app/lib/data/getWorks';
 import { Work } from '@prisma/client';
 import WorkPage from './work';

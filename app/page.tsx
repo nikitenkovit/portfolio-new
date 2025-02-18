@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MainButtonWrapper } from './components';
+import { MainButtonWrapper } from './lib/components';
 import styles from './page.module.scss';
 
 export default function Home() {

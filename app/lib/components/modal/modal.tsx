@@ -1,9 +1,9 @@
 'use client';
 
-import { useClient } from '@/app/lib/hooks/use-client';
-import { useNavigation } from '@/app/lib/hooks/use-navigation';
 import { type ElementRef, MouseEvent, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useClient } from '../../hooks/use-client';
+import { useNavigation } from '../../hooks/use-navigation';
 import styles from './modal.module.scss';
 
 export function Modal({

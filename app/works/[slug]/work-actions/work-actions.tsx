@@ -1,6 +1,6 @@
 'use client';
 
-import { MainButtonWrapper } from '@/app/components';
+import { MainButtonWrapper } from '@/app/lib/components';
 import { useAuth } from '@/app/lib/hooks/use-auth';
 import { useBoolean } from '@/app/lib/hooks/use-boolean';
 import { Work } from '@prisma/client';

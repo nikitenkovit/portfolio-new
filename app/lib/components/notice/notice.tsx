@@ -1,5 +1,5 @@
-import { NotificationStatus } from '@/app/lib/types';
 import classNames from 'classnames';
+import type { NotificationStatus } from '../../types';
 import styles from './notice.module.scss';
 
 interface IProps {

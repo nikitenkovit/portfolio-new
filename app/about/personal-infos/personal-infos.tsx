@@ -1,5 +1,5 @@
 'use client';
-import { MainButtonWrapper } from '@/app/components';
+import { MainButtonWrapper } from '@/app/lib/components';
 import { saveAs } from 'file-saver';
 import Image from 'next/image';
 import { personalInfos } from './personal-infos.data';

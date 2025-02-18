@@ -3,7 +3,7 @@
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import { MainButtonWrapper } from '../components';
+import { MainButtonWrapper } from '../lib/components';
 import { AppLink } from '../lib/types';
 import styles from './provider-buttons.module.scss';
 

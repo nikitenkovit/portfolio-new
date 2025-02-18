@@ -1,10 +1,10 @@
 'use client';
-import { useTimeout } from '@/app/lib/hooks/use-timeout';
-import type { TypeIconName } from '@/app/lib/types';
-import { NotificationStatus } from '@/app/lib/types';
 import { CSSProperties } from 'react';
+import { useTimeout } from '../../hooks/use-timeout';
+import type { TypeIconName } from '../../types';
+import { NotificationStatus } from '../../types';
 import { MainButtonWrapper } from '../main-button-wrapper';
-import { Notice } from '../notice/notice';
+import { Notice } from '../notice';
 import styles from './main-form.module.scss';
 
 interface IProps {

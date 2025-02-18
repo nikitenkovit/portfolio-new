@@ -1,6 +1,6 @@
-import type { TypeIconName } from '@/app/lib/types';
 import classNames from 'classnames';
-import { Icon } from '../icons/icon-component';
+import type { TypeIconName } from '../../types';
+import { Icon } from '../icons';
 import styles from './main-button-wrapper.module.scss';
 
 interface IProps {

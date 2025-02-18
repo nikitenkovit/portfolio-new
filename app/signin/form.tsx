@@ -2,8 +2,7 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
-import { MainButtonWrapper, TextInput } from '../components';
-import { Hint } from '../components/hint/hint';
+import { Hint, MainButtonWrapper, TextInput } from '../lib/components';
 import { AppLink } from '../lib/types';
 import { getAuthError } from '../lib/utils/common';
 import styles from './form.module.scss';

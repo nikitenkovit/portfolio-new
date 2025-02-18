@@ -1,4 +1,4 @@
-import { Icon } from '@/app/components/icons/icon-component';
+import { Icon } from '@/app/lib/components';
 import { getWork, getWorks } from '@/app/lib/data/getWorks';
 import { Work } from '@prisma/client';
 import Image from 'next/image';

@@ -1,4 +1,4 @@
-import { Hr } from '../components';
+import { Hr } from '../lib/components';
 import { Experience } from './experience';
 import styles from './page.module.scss';
 import { PersonalInfos } from './personal-infos';

@@ -1,7 +1,7 @@
 'use client';
-import { useAuth } from '@/app/lib/hooks/use-auth';
-import { useBoolean } from '@/app/lib/hooks/use-boolean';
 import classNames from 'classnames';
+import { useAuth } from '../../hooks/use-auth';
+import { useBoolean } from '../../hooks/use-boolean';
 import { MenuItem } from './menu-item';
 import { adminLink, loginLink, menuDataItems } from './menu.data';
 import styles from './menu.module.scss';

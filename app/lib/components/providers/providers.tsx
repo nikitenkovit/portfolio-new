@@ -1,8 +1,8 @@
 'use client';
 
-import { TWENTY_FOUR_HOURS_IN_MILLISECONDS } from '@/app/lib/constants/common';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { TWENTY_FOUR_HOURS_IN_MILLISECONDS } from '../../constants';
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {

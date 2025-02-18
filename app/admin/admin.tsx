@@ -1,7 +1,7 @@
 'use client';
 
 import { signOut } from 'next-auth/react';
-import { MainButtonWrapper } from '../components';
+import { MainButtonWrapper } from '../lib/components';
 import { AppLink } from '../lib/types';
 import styles from './admin.module.scss';
 

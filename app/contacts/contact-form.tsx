@@ -1,9 +1,7 @@
 'use client';
 import { useActionState } from 'react';
-import { Hint } from '../components/hint/hint';
-import { TextareaInput } from '../components/inputs/textarea-input';
-import { MainForm } from '../components/main-form/main-form';
 import { ContactActionState, sendMessage } from '../lib/actions';
+import { Hint, MainForm, TextareaInput } from '../lib/components';
 import { useUserData } from '../lib/hooks/use-user-data';
 import { NotificationStatus } from '../lib/types';
 

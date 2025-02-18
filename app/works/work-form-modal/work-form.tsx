@@ -1,10 +1,7 @@
 'use client';
 
-import { TextInput } from '@/app/components';
-import { Hint } from '@/app/components/hint/hint';
-import { TextareaInput } from '@/app/components/inputs/textarea-input';
-import { MainForm } from '@/app/components/main-form/main-form';
 import { createOrUpdateWork, WorkActionState } from '@/app/lib/actions';
+import { Hint, MainForm, TextareaInput, TextInput } from '@/app/lib/components';
 import { CURRENT_YEAR } from '@/app/lib/constants/common';
 import {
 	MAX_WORK_DESCRIPTIONS_LENGTH,

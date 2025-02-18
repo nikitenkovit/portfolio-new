@@ -1,13 +1,12 @@
 import classNames from 'classnames';
 import React, { Ref } from 'react';
+import { BgInputColor } from '../../types';
 import commonStyles from './common-input.module.scss';
-
-type BgColor = 'primary' | 'secondary';
 
 interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
 	ref?: Ref<HTMLTextAreaElement>;
 	width?: string;
-	bgColor?: BgColor;
+	bgColor?: BgInputColor;
 	rows?: number;
 }
 

@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 
-import { Header, Menu, Providers, UtilityServiceCaller } from './components';
+import {
+	Header,
+	Menu,
+	Providers,
+	UtilityServiceCaller,
+} from './lib/components';
 import './styles/globals.scss';
 
 const montserrat = Montserrat({
