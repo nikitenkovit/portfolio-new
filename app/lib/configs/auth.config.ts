@@ -4,8 +4,8 @@ import Credentials from 'next-auth/providers/credentials';
 import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { z } from 'zod';
-import { Link } from '../lib/types/links.type';
-import { AuthService } from '../services';
+import { AuthService } from '../../services';
+import { Link } from '../types/links.type';
 
 export const authConfig: AuthOptions = {
 	providers: [
