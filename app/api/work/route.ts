@@ -1,6 +1,6 @@
 import { ERROR_TEXT } from '@/app/lib/constants/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { WorkService } from './work.service';
+import { WorkService } from '../../services';
 
 export async function GET(request: NextRequest) {
 	const slug = request.nextUrl.searchParams.get('slug');
@@ -9,10 +9,8 @@ export async function GET(request: NextRequest) {
 		throw new Error(ERROR_TEXT.OUTPUT_DATA);
 	}
 
-	const workService = new WorkService();
-
 	try {
-		const work = await workService.getBySlug(slug);
+		const work = await WorkService.getBySlug(slug);
 
 		return NextResponse.json(work, {
 			status: 200,

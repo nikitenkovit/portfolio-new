@@ -1,3 +1,5 @@
-// FIXME: Переместить сюда все сервисы проекта
+export * from './auth';
 export * from './cache';
 export * from './initializer';
+export * from './telegram';
+export * from './work';

@@ -1,10 +1,9 @@
-import { ERROR_TEXT } from '@/app/lib/constants/auth';
-import { DEFAULT_UPLOAD_FOLDER_NAME } from '@/app/lib/constants/common';
 import { ensureDir } from 'fs-extra';
 import { rmdir, unlink, writeFile } from 'fs/promises';
 import path from 'path';
-import { AuthService } from '../auth/auth.service';
-import { FileServiceInterface } from './file.interfase';
+import { DEFAULT_UPLOAD_FOLDER_NAME, ERROR_TEXT } from '../../lib/constants';
+import { AuthService } from '../auth';
+import { FileServiceInterface } from './file.interface';
 
 export class FileService extends AuthService implements FileServiceInterface {
 	public async save(folder: string, file?: File): Promise<string | undefined> {

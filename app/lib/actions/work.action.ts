@@ -1,19 +1,19 @@
 'use server';
 
-import { WorkService } from '@/app/api/work/work.service';
-import { CURRENT_YEAR } from '@/app/lib/constants/common';
+import { WorkService } from '@/app/services';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { z } from 'zod';
 import {
+	CURRENT_YEAR,
+	ERROR_TEXT,
 	MAX_FILE_SIZE,
 	MAX_WORK_DESCRIPTIONS_LENGTH,
 	MAX_WORK_TEXT_LENGTH,
 	MAX_WORK_TITLE_LENGTH,
 	MIN_WORK_TEXT_LENGTH,
-} from '@/app/lib/constants/works';
-import { Link } from '@/app/lib/types/links.type';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { z } from 'zod';
-import { ERROR_TEXT } from '../lib/constants/auth';
+} from '../constants';
+import { Link } from '../types/links.type';
 
 const FormSchema = z
 	.object({
@@ -157,11 +157,10 @@ export async function createOrUpdateWork(
 	let slug;
 
 	try {
-		const workService = new WorkService();
 		if (id) {
-			slug = await workService.update(id, data);
+			slug = await WorkService.update(id, data);
 		} else {
-			slug = await workService.create(data);
+			slug = await WorkService.create(data);
 		}
 	} catch (error) {
 		return {
@@ -184,10 +183,8 @@ export async function createOrUpdateWork(
 }
 
 export async function removeWork(id: string) {
-	const workService = new WorkService();
-
 	try {
-		await workService.delete(id);
+		await WorkService.delete(id);
 	} catch (error: unknown) {
 		if (error instanceof Error) {
 			return error.message;

@@ -1,12 +1,12 @@
 'use server';
 
+import { TelegramService } from '@/app/services';
 import { z } from 'zod';
 import {
 	MAX_WORK_DESCRIPTIONS_LENGTH,
 	MIN_WORK_TEXT_LENGTH,
-} from '../lib/constants/works';
-import { NotificationStatus } from '../lib/types/notification-status.type';
-import { TelegramService } from '../services/telegram/telegram.service';
+} from '../constants';
+import { NotificationStatus } from '../types/notification-status.type';
 
 const Message = z
 	.string({
@@ -25,8 +25,6 @@ export type ContactActionState = {
 	notice?: string;
 	status: NotificationStatus;
 };
-
-// FIXME: export default new RedisService(); => сделать так же в других сервисах!
 
 export async function sendMessage(
 	_prevState: ContactActionState,
@@ -51,8 +49,7 @@ export async function sendMessage(
 	const text = validatedFields.data;
 
 	try {
-		const telegramService = new TelegramService();
-		const warning = await telegramService.sendMessage(userIP, text);
+		const warning = await TelegramService.sendMessage(userIP, text);
 
 		if (warning) {
 			return {

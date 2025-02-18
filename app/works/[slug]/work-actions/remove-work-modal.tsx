@@ -1,6 +1,6 @@
-import { removeWork } from '@/app/actions/work.action';
 import { MainButtonWrapper, Modal } from '@/app/components';
 import { ErrorBoundary } from '@/app/components/error-boundary/error-boundary';
+import { removeWork } from '@/app/lib/actions';
 import { Link } from '@/app/lib/types/links.type';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';

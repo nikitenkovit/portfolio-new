@@ -6,7 +6,7 @@ import { MenuItem } from './menu-item';
 import { adminLink, loginLink, menuDataItems } from './menu.data';
 import styles from './menu.module.scss';
 
-export default function Menu() {
+export const Menu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useBoolean(false);
 	const { isAuthenticated } = useAuth();
 
@@ -47,4 +47,4 @@ export default function Menu() {
 			</ul>
 		</>
 	);
-}
+};

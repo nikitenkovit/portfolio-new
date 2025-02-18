@@ -1,11 +1,11 @@
-import { AuthService } from '@/app/api/auth/auth.service';
-import { Link } from '@/app/lib/types/links.type';
 import bcrypt from 'bcrypt';
 import type { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { z } from 'zod';
+import { Link } from '../lib/types/links.type';
+import { AuthService } from '../services';
 
 export const authConfig: AuthOptions = {
 	providers: [

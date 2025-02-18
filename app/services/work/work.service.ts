@@ -1,13 +1,13 @@
-import { ERROR_TEXT } from '@/app/lib/constants/auth';
-import { prisma } from '@/app/lib/db';
-import { WorkPayload } from '@/app/lib/types/work.type';
-import { generateSlug } from '@/app/lib/utils/generateSlug';
 import { Work } from '@prisma/client';
-import { AuthService } from '../auth/auth.service';
-import { FileService } from '../file/file.service';
+import { ERROR_TEXT } from '../../lib/constants';
+import { prisma } from '../../lib/db';
+import { WorkPayload } from '../../lib/types/work.type';
+import { generateSlug } from '../../lib/utils';
+import { AuthService } from '../auth';
+import { FileService } from '../file';
 import { WorkServiceInterface } from './work.interface';
 
-export class WorkService extends AuthService implements WorkServiceInterface {
+class WorkService extends AuthService implements WorkServiceInterface {
 	private fileService: FileService;
 
 	constructor() {
@@ -132,3 +132,5 @@ export class WorkService extends AuthService implements WorkServiceInterface {
 		}
 	}
 }
+
+export default new WorkService();

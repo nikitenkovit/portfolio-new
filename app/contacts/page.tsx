@@ -1,3 +1,4 @@
+import { ErrorBoundary } from '../components/error-boundary/error-boundary';
 import { ContactForm } from './contact-form';
 import styles from './page.module.scss';
 
@@ -16,7 +17,9 @@ export default async function Contact() {
 					</p>
 				</div>
 				<div className={styles.formContainer}>
-					<ContactForm />
+					<ErrorBoundary>
+						<ContactForm />
+					</ErrorBoundary>
 				</div>
 			</div>
 		</main>

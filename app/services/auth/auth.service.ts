@@ -1,8 +1,8 @@
-import { authConfig } from '@/app/configs/auth.config';
-import { ERROR_TEXT } from '@/app/lib/constants/auth';
-import { prisma } from '@/app/lib/db';
 import { User } from '@prisma/client';
 import { getServerSession } from 'next-auth/next';
+import { authConfig } from '../../configs';
+import { ERROR_TEXT } from '../../lib/constants';
+import { prisma } from '../../lib/db';
 import { AuthServiceInterface } from './auth.interface';
 
 export class AuthService implements AuthServiceInterface {
