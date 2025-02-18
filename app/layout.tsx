@@ -7,7 +7,7 @@ import {
 	Providers,
 	UtilityServiceCaller,
 } from './lib/components';
-import './styles/globals.scss';
+import './lib/styles/globals.scss';
 
 const montserrat = Montserrat({
 	weight: ['500', '600', '700', '800', '900'],
