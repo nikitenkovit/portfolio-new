@@ -7,8 +7,10 @@ import styles from './personal-infos.module.scss';
 
 export const PersonalInfos = () => {
 	const clickHandler = () => {
+		// FIXME: Скрыть кнопку!!!!
 		saveAs('/test.txt', 'myDocument.txt');
 	};
+	// TODO: Подумать над круглой фотографией на версии для планшета. Сделать квадратной?
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>Личная информация</h2>

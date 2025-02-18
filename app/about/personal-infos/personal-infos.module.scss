@@ -28,6 +28,7 @@
 	margin: 22px auto 0;
 	border: 4px solid $dark-background-menu-color;
 	border-radius: 50%;
+	overflow: hidden;
 
 	@media (min-width: $breakpoint-tablet) {
 		display: none;

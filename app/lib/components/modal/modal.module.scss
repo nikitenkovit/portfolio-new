@@ -55,7 +55,7 @@ html:has(.modal[open]) {
 	height: 62px;
 	background-color: $modal-background;
 	border-bottom: 1px solid $line-color;
-	z-index: 1;
+	z-index: 10;
 
 	@media (min-width: $breakpoint-tablet) {
 		height: 102px;
