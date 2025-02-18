@@ -1,7 +1,6 @@
 'use client';
 import { Work } from '@prisma/client';
-import { useAuth } from '../lib/hooks/use-auth';
-import { useBoolean } from '../lib/hooks/use-boolean';
+import { useAuth, useBoolean } from '../lib/hooks';
 import styles from './page.module.scss';
 import { addNewWorkData } from './portfolio.data';
 import { WorkFormModal } from './work-form-modal/work-form-modal';

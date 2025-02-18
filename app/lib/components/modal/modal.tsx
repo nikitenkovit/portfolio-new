@@ -2,8 +2,7 @@
 
 import { type ElementRef, MouseEvent, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { useClient } from '../../hooks/use-client';
-import { useNavigation } from '../../hooks/use-navigation';
+import { useClient, useNavigation } from '../../hooks';
 import styles from './modal.module.scss';
 
 export function Modal({

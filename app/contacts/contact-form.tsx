@@ -2,7 +2,7 @@
 import { useActionState } from 'react';
 import { ContactActionState, sendMessage } from '../lib/actions';
 import { Hint, MainForm, TextareaInput } from '../lib/components';
-import { useUserData } from '../lib/hooks/use-user-data';
+import { useUserData } from '../lib/hooks';
 import { NotificationStatus } from '../lib/types';
 
 export const ContactForm = () => {

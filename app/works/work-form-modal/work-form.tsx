@@ -8,7 +8,7 @@ import {
 	MAX_WORK_TEXT_LENGTH,
 	MAX_WORK_TITLE_LENGTH,
 } from '@/app/lib/constants/works';
-import { useInputFocus } from '@/app/lib/hooks/use-input-focus';
+import { useInputFocus } from '@/app/lib/hooks';
 import { Work } from '@prisma/client';
 import { MutableRefObject, useActionState } from 'react';
 import styles from './work-form.module.scss';

@@ -1,6 +1,6 @@
 'use client';
 import { CSSProperties } from 'react';
-import { useTimeout } from '../../hooks/use-timeout';
+import { useTimeout } from '../../hooks';
 import type { TypeIconName } from '../../types';
 import { NotificationStatus } from '../../types';
 import { MainButtonWrapper } from '../main-button-wrapper';

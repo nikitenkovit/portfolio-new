@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { DEFAULT_DELAY } from '../constants/common';
+import { DEFAULT_DELAY } from '../constants';
 
 export const useTimeout = (callback?: unknown, delay = DEFAULT_DELAY) => {
 	const [isTimeoutActive, setIsTimeoutActive] = useState(!!callback);
