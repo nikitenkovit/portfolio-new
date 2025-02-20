@@ -1,60 +1,53 @@
 'use client';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { FormEventHandler, useState } from 'react';
-import { Hint, MainButtonWrapper, TextInput } from '../lib/components';
-import { AppLink } from '../lib/types';
-import { getAuthError } from '../lib/utils';
-import styles from './form.module.scss';
+import { useActionState } from 'react';
+import { login, LoginActionState } from '../lib/actions';
+import { Hint, MainForm, TextInput } from '../lib/components';
+import { NotificationStatus } from '../lib/types';
 
 export function SignInForm() {
-	const router = useRouter();
-	// FIXME: добавить isFetching для кнопки отправки
-	const [error, setError] = useState<string | undefined>(undefined);
-	// FIXME: сделать валидацию с помощью useFormContext
-
-	const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-		event.preventDefault();
-
-		const formData = new FormData(event.currentTarget);
-
-		// FIXME: сделать шифрование передаваемого пароля
-		const res = await signIn('credentials', {
-			email: formData.get('email'),
-			password: formData.get('password'),
-			redirect: false,
-		});
-
-		if (res && !res.error) {
-			router.push(AppLink.Admin);
-		} else {
-			setError(getAuthError(res?.error));
-		}
+	const initialState: LoginActionState = {
+		notice: null,
+		errors: {},
+		fieldsValue: {
+			email: '',
+			password: '',
+		},
 	};
 
+	const [{ notice, errors, fieldsValue }, formAction, isPending] =
+		useActionState(login, initialState);
+
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<Hint text={error}>
+		<MainForm
+			formAction={formAction}
+			iconName="RiLoginCircleLine"
+			buttonName="Войти"
+			isPending={isPending}
+			notice={notice}
+			noticeVariant={NotificationStatus.Error}
+		>
+			<Hint text={errors?.email?.join('\n\n')} variant="red">
 				<TextInput
 					id="email"
 					type="email"
 					name="email"
 					width="100%"
 					placeholder="Email"
+					defaultValue={fieldsValue?.email}
 					required
 				/>
 			</Hint>
-			<TextInput
-				id="password"
-				type="password"
-				name="password"
-				width="100%"
-				placeholder="Password"
-				required
-			/>
-			<MainButtonWrapper iconName="RiLoginCircleLine">
-				<button type="submit">Войти</button>
-			</MainButtonWrapper>
-		</form>
+			<Hint text={errors?.password?.join('\n\n')} variant="red">
+				<TextInput
+					id="password"
+					type="password"
+					name="password"
+					width="100%"
+					placeholder="Password"
+					defaultValue={fieldsValue?.password}
+					required
+				/>
+			</Hint>
+		</MainForm>
 	);
 }

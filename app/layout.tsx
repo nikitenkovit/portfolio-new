@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 		'Портфолио front-end разработчика, демонстрирующее мои навыки и проекты. Я специализируюсь на React, Next, Nest, TypeScript, NodeJs, SASS и здесь вы можете ознакомиться с моими работами и достижениями.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;

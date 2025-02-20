@@ -1,6 +1,5 @@
 import { User } from '@prisma/client';
 
-export interface AuthServiceInterface {
+export interface UserServiceInterface {
 	getUser(email: string): Promise<User | undefined>;
-	checkUserAuthorization(): Promise<boolean>;
 }

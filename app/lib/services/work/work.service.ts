@@ -3,15 +3,13 @@ import { ERROR_TEXT } from '../../constants';
 import { prisma } from '../../db';
 import type { WorkPayload } from '../../types';
 import { generateSlug } from '../../utils';
-import { AuthService } from '../auth';
 import { FileService } from '../file';
 import { WorkServiceInterface } from './work.interface';
 
-class WorkService extends AuthService implements WorkServiceInterface {
+class WorkService implements WorkServiceInterface {
 	private fileService: FileService;
 
 	constructor() {
-		super();
 		this.fileService = new FileService();
 	}
 
@@ -32,12 +30,6 @@ class WorkService extends AuthService implements WorkServiceInterface {
 	}
 
 	public async create(work: WorkPayload): Promise<string | undefined> {
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
-
 		const slug = generateSlug(work.title);
 
 		const { id } = await prisma.work.create({
@@ -55,9 +47,7 @@ class WorkService extends AuthService implements WorkServiceInterface {
 					data: { image },
 				});
 			} catch (_e) {
-				throw new Error(
-					'Новая работа успешно создана. Но произошла ошибка при сохранении изображения. Попробуйте добавить изображение через форму "Изменить"'
-				);
+				throw new Error(ERROR_TEXT.SAVE_IMAGE_IN_CREATE_WORK);
 			}
 		}
 
@@ -68,12 +58,6 @@ class WorkService extends AuthService implements WorkServiceInterface {
 		id: string,
 		work: WorkPayload
 	): Promise<string | undefined> {
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
-
 		const existingWork = await prisma.work.findUnique({
 			where: {
 				id,
@@ -99,12 +83,6 @@ class WorkService extends AuthService implements WorkServiceInterface {
 	}
 
 	public async delete(id: string): Promise<void> {
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
-
 		const existingWork = await prisma.work.findUnique({
 			where: {
 				id,
@@ -125,9 +103,7 @@ class WorkService extends AuthService implements WorkServiceInterface {
 			try {
 				await this.fileService.deleteFolder(`works/${id}`);
 			} catch (_e) {
-				throw new Error(
-					'Работа успешно удалена! Но произошла ошибка при удалении папки с изображениями!'
-				);
+				throw new Error(ERROR_TEXT.REMOVE_FOLDER_IN_REMOVE_WORK);
 			}
 		}
 	}
