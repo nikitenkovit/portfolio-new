@@ -1,19 +1,12 @@
 import { ensureDir } from 'fs-extra';
 import { rmdir, unlink, writeFile } from 'fs/promises';
 import path from 'path';
-import { DEFAULT_UPLOAD_FOLDER_NAME, ERROR_TEXT } from '../../constants';
-import { AuthService } from '../auth';
+import { DEFAULT_UPLOAD_FOLDER_NAME } from '../../constants';
 import { FileServiceInterface } from './file.interface';
 
-export class FileService extends AuthService implements FileServiceInterface {
+export class FileService implements FileServiceInterface {
 	public async save(folder: string, file?: File): Promise<string | undefined> {
 		if (!file || file?.size! === 0) return;
-
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
 
 		const uploadFolder = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
 
@@ -29,24 +22,12 @@ export class FileService extends AuthService implements FileServiceInterface {
 	}
 
 	public async deleteFile(url: string): Promise<void> {
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
-
 		const filePath = path.join(DEFAULT_UPLOAD_FOLDER_NAME, url);
 
 		await unlink(filePath);
 	}
 
 	public async deleteFolder(folder: string): Promise<void> {
-		const isAuthorized = await this.checkUserAuthorization();
-
-		if (!isAuthorized) {
-			throw new Error(ERROR_TEXT.NOT_AUTHORIZED);
-		}
-
 		const folderPath = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
 
 		await rmdir(folderPath, { recursive: true });

@@ -11,7 +11,7 @@ export const Menu = () => {
 
 	const menuToggleHandler = () => setIsMenuOpen.toggle();
 	const menuCloseHandler = () => setIsMenuOpen.off();
-
+	// TODO: Сделать саспенс и скелетон на значке страниц авторизации и админа !!!!!ИВЕЗДЕ ГДЕ ИСПОЛЬЗУЕТСЯ ПРОВЕРКА АВТОРИЗАЦИИ!!!!
 	return (
 		<>
 			<button

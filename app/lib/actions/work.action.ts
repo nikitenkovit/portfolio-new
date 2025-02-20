@@ -1,5 +1,6 @@
 'use server';
 
+import { auth } from '@/auth';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
@@ -14,6 +15,7 @@ import {
 } from '../constants';
 import { WorkService } from '../services';
 import { AppLink } from '../types';
+import { checkUserAuthorization } from '../utils';
 
 const FormSchema = z
 	.object({
@@ -22,38 +24,40 @@ const FormSchema = z
 				required_error: 'Заполните год',
 				invalid_type_error: 'Год должен быть числом',
 			})
-			.gt(2019, { message: 'Год должен быть больше 2019' })
-			.lte(CURRENT_YEAR, { message: 'Год не может быть больше текущего' })
+			.gt(2019, { message: 'Год должен быть больше 2019 и не больше текущего' })
+			.lte(CURRENT_YEAR, {
+				message: 'Год должен быть больше 2019 и не больше текущего',
+			})
 			.transform(String),
 		title: z
 			.string({
 				invalid_type_error: 'Заполните название',
 			})
 			.min(MIN_WORK_TEXT_LENGTH, {
-				message: `Название должно быть не менее ${MIN_WORK_TEXT_LENGTH} символов`,
+				message: `Название должно быть не менее ${MIN_WORK_TEXT_LENGTH} и не более ${MAX_WORK_TITLE_LENGTH} символов`,
 			})
 			.max(MAX_WORK_TITLE_LENGTH, {
-				message: `Название должно быть не более ${MAX_WORK_TITLE_LENGTH} символов`,
+				message: `Название должно быть не менее ${MIN_WORK_TEXT_LENGTH} и не более ${MAX_WORK_TITLE_LENGTH} символов`,
 			}),
 		description: z
 			.string({
 				invalid_type_error: 'Заполните описание',
 			})
 			.min(MIN_WORK_TEXT_LENGTH, {
-				message: `Описание должно быть не менее ${MIN_WORK_TEXT_LENGTH} символов`,
+				message: `Описание должно быть не менее ${MIN_WORK_TEXT_LENGTH} м не более ${MAX_WORK_DESCRIPTIONS_LENGTH} символов`,
 			})
 			.max(MAX_WORK_DESCRIPTIONS_LENGTH, {
-				message: `Описание должно быть не более ${MAX_WORK_DESCRIPTIONS_LENGTH} символов`,
+				message: `Описание должно быть не менее ${MIN_WORK_TEXT_LENGTH} м не более ${MAX_WORK_DESCRIPTIONS_LENGTH} символов`,
 			}),
 		technologies: z
 			.string({
 				invalid_type_error: 'Заполните технологии',
 			})
 			.min(MIN_WORK_TEXT_LENGTH, {
-				message: `Технологии должно быть не менее ${MIN_WORK_TEXT_LENGTH} символов`,
+				message: `Технологии должно быть не менее ${MIN_WORK_TEXT_LENGTH} и не более ${MAX_WORK_TEXT_LENGTH} символов`,
 			})
 			.max(MAX_WORK_TEXT_LENGTH, {
-				message: `Технологии должно быть не более ${MAX_WORK_TEXT_LENGTH} символов`,
+				message: `Технологии должно быть не менее ${MIN_WORK_TEXT_LENGTH} и не более ${MAX_WORK_TEXT_LENGTH} символов`,
 			}),
 		link: z.string().max(MAX_WORK_TEXT_LENGTH, {
 			message: `Ссылка должна быть не более ${MAX_WORK_TEXT_LENGTH} символов`,
@@ -148,7 +152,25 @@ export async function createOrUpdateWork(
 				githubLink,
 			},
 			errors: validatedFields.error.flatten().fieldErrors,
-			notice: 'Пропущены обязательные поля',
+			notice: ERROR_TEXT.FORM_NOT_VALID,
+		};
+	}
+
+	const session = await auth();
+	const isAuthorized = checkUserAuthorization(session);
+
+	if (!isAuthorized) {
+		return {
+			id,
+			fieldsValue: {
+				year,
+				title,
+				description,
+				technologies,
+				link,
+				githubLink,
+			},
+			notice: ERROR_TEXT.NOT_AUTHORIZED,
 		};
 	}
 
@@ -183,6 +205,13 @@ export async function createOrUpdateWork(
 }
 
 export async function removeWork(id: string) {
+	const session = await auth();
+	const isAuthorized = checkUserAuthorization(session);
+
+	if (!isAuthorized) {
+		return ERROR_TEXT.NOT_AUTHORIZED;
+	}
+
 	try {
 		await WorkService.delete(id);
 	} catch (error: unknown) {
