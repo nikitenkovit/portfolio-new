@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import {
@@ -12,10 +12,11 @@ import {
 	MAX_WORK_TEXT_LENGTH,
 	MAX_WORK_TITLE_LENGTH,
 	MIN_WORK_TEXT_LENGTH,
+	TAGS,
 } from '../constants';
 import { WorkService } from '../services';
 import { AppLink } from '../types';
-import { checkUserAuthorization } from '../utils';
+import { checkUserAuthorization, getWorkPath, getWorkTag } from '../utils';
 
 const FormSchema = z
 	.object({
@@ -198,10 +199,11 @@ export async function createOrUpdateWork(
 		};
 	}
 
-	// TODO: Подумать над оптимизацией
+	revalidateTag(TAGS.works);
+	revalidateTag(getWorkTag(slug));
+	revalidatePath(getWorkPath(slug));
 	revalidatePath(AppLink.Works);
-	revalidatePath(`${AppLink.Works}/${slug}`);
-	redirect(`${AppLink.Works}/${slug}`);
+	redirect(getWorkPath(slug));
 }
 
 export async function removeWork(id: string) {
@@ -222,7 +224,7 @@ export async function removeWork(id: string) {
 		}
 	}
 
-	// TODO: Подумать над оптимизацией
+	revalidateTag(TAGS.works);
 	revalidatePath(AppLink.Works);
 	redirect(AppLink.Works);
 }

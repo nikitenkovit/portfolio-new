@@ -1,25 +1,33 @@
-import { ErrorBoundary, Modal } from '@/app/lib/components';
-import { getWorks } from '@/app/lib/data';
+import { getWork, getWorks } from '@/app/lib/data';
 import { Work } from '@prisma/client';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import WorkPage from './work';
 
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
 	const works = await getWorks();
+
 	return works.map((data) => ({ slug: data.slug }));
 }
 
-export default function WorkListWithSingleWork({
+export default async function WorkListWithSingleWork({
 	params,
 }: {
 	params: Promise<Work>;
 }) {
+	const { slug } = await params;
+	const work = await getWork(slug);
+
+	if (!work) {
+		notFound();
+	}
+
+	// TODO: Добавить скелетон!!! Очень сильно нужен! Прям видно на странице как появляется сообщение!!! Скелетон сделать в модальном окне обязательно!!!
 	return (
-		<Modal>
-			<ErrorBoundary>
-				<WorkPage params={params} />
-			</ErrorBoundary>
-		</Modal>
+		<Suspense fallback={<div>Loading...</div>}>
+			<WorkPage work={work} />
+		</Suspense>
 	);
 }

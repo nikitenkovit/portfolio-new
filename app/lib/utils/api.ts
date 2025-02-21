@@ -1,6 +1,9 @@
-import { API_URL } from '../constants';
+import { TAGS } from '../constants';
+import { AppLink } from '../types';
 
-// FIXME: Сделать получения адресов везде через функции
-export const getWorkUrl = (slug: string) => `${API_URL}/work?slug=${slug}`;
-export const getWorksUrl = () => `${API_URL}/works`;
 export const getUserDataUrl = () => 'api/user';
+
+export const getWorkTag = (slug?: string) =>
+	`${TAGS.work}${slug ? '/' + slug : ''}`;
+export const getWorkPath = (slug?: string) =>
+	`${AppLink.Works}${slug ? '/' + slug : ''}`;
