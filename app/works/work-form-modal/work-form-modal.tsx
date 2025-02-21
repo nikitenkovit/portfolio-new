@@ -15,7 +15,12 @@ export const WorkFormModal = ({ onClose, work }: IPops) => {
 	const router = useRouter();
 
 	const closeHandler = () => {
-		onClose ? onClose() : router.push(`/works/${work?.slug}`);
+		if (onClose) {
+			onClose();
+
+			return;
+		}
+		router.push(`/works/${work?.slug}`);
 	};
 
 	return (

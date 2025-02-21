@@ -6,7 +6,7 @@ import { FileServiceInterface } from './file.interface';
 
 export class FileService implements FileServiceInterface {
 	public async save(folder: string, file?: File): Promise<string | undefined> {
-		if (!file || file?.size! === 0) return;
+		if (!file || file.size === 0) return;
 
 		const uploadFolder = path.join(DEFAULT_UPLOAD_FOLDER_NAME, folder);
 
