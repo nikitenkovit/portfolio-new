@@ -2,7 +2,7 @@ import { Work } from '@prisma/client';
 
 export const addNewWorkData: Work = {
 	year: '',
-	title: 'Добавить',
+	title: 'Добавить работу',
 	slug: '',
 	description: '',
 	technologies: '',
