@@ -1,17 +1,19 @@
-import { Work } from '@prisma/client';
-import { getWorksUrl, getWorkUrl } from '../utils';
+import { unstable_cache } from 'next/cache';
+import { TAGS } from '../constants';
+import { WorkService } from '../services';
 
-export async function getWork(slug: string): Promise<Work | null> {
-	const response = await fetch(getWorkUrl(slug));
+export const getWorks = unstable_cache(
+	async () => {
+		return await WorkService.getMany();
+	},
+	[TAGS.works],
+	{ tags: [TAGS.works] }
+);
 
-	const work = await response.json();
-
-	return work;
-}
-
-export async function getWorks(): Promise<Work[]> {
-	// вызывается в серверном компоненте. не требует useQuery
-	const response = await fetch(getWorksUrl());
-	const works = await response.json();
-	return works;
-}
+export const getWork = unstable_cache(
+	async (slug: string) => {
+		return await WorkService.getBySlug(slug);
+	},
+	[TAGS.work],
+	{ tags: [TAGS.work] }
+);

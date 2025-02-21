@@ -29,16 +29,15 @@ const nextConfig: NextConfig = {
 		prependData: `@import "bootstrap.scss";`,
 		silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
 	},
-	serverRuntimeConfig: {
-		// trustedHosts: ['http://localhost:3000'],
-		serviceInitializer:
-			process.env.NODE_ENV === 'development'
-				? ServiceInitializer.initialize()
-				: null,
-	},
 	// serverRuntimeConfig: {
-	// serviceInitializer: ServiceInitializer.initialize(),
+	// 	serviceInitializer:
+	// 		process.env.NODE_ENV === 'development'
+	// 			? ServiceInitializer.initialize()
+	// 			: null,
 	// },
+	serverRuntimeConfig: {
+		serviceInitializer: ServiceInitializer.initialize(),
+	},
 };
 
 export default nextConfig;

@@ -7,11 +7,6 @@ import styles from './work.module.scss';
 export default function WorkPage({ work }: { work: Work }) {
 	// FIXME: Добавить в Suspense скелетон И НЕОБХОДИМЫЕ ШИРИНЫ ДЛЯ ЕГО ОТОБРАЖЕНИЯ!!!!
 
-	if (!work) {
-		// FIXME: Добавить страницу 404 и убрать
-		// return null;
-	}
-
 	return (
 		<Modal>
 			<ErrorBoundary>

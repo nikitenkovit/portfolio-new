@@ -8,10 +8,6 @@ export const dynamicParams = true;
 
 export async function generateStaticParams() {
 	const works = await getWorks();
-	console.log(
-		'works.map((data) => ({ slug: data.slug }))',
-		works.map((data) => ({ slug: data.slug }))
-	);
 
 	return works.map((data) => ({ slug: data.slug }));
 }
@@ -25,7 +21,6 @@ export default async function WorkListWithSingleWork({
 	const work = await getWork(slug);
 
 	if (!work) {
-		// FIXME: Добавить страницу 404
 		notFound();
 	}
 

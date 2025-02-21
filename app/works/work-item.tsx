@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { getWorkPath } from '../lib/utils';
 import styles from './work-item.module.scss';
 
 interface IProps {
@@ -37,7 +38,7 @@ export const WorkItem = ({ item, isItemCreate, onClick }: IProps) => {
 			return onClick();
 		}
 
-		router.push(`/works/${item.slug}`);
+		router.push(getWorkPath(item.slug));
 	};
 
 	return (
@@ -66,8 +67,10 @@ export const WorkItem = ({ item, isItemCreate, onClick }: IProps) => {
 				<motion.figcaption className={styles.caption} variants={slashMotion}>
 					{item.title}
 					<div className={styles.technologies}>
-						{item.technologies?.split(',').map((technology) => (
-							<span key={`${item.title}-${technology}`}>{technology}</span>
+						{item.technologies?.split(',').map((technology, index) => (
+							<span key={`${item.title}-${technology}-${index}`}>
+								{technology}
+							</span>
 						))}
 					</div>
 				</motion.figcaption>

@@ -29,7 +29,7 @@ export const WorkList = ({ items }: IProps) => {
 				)}
 				{items.length &&
 					items.map((item) => {
-						return <WorkItem item={item} key={item.slug} />;
+						return <WorkItem item={item} key={item.id || item.slug} />;
 					})}
 			</ul>
 			{isCreateModalOpen && <WorkFormModal onClose={createModalCloseHandler} />}
