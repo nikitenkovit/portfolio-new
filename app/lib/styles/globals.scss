@@ -1,6 +1,13 @@
 html {
+	width: 100%;
+	overflow-x: hidden;
 	background-color: $dark-background-color;
 	color: $white-color;
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden;
 }
 
 *,

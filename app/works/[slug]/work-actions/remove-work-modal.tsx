@@ -7,16 +7,16 @@ import styles from './remove-work-modal.module.scss';
 
 export const RemoveWorkModal = ({
 	onClose,
-	id,
+	workId,
 }: {
 	onClose: () => void;
-	id: string;
+	workId: string;
 }) => {
 	const router = useRouter();
 	const [error, setError] = useState<string | undefined>();
 
 	const acceptHandler = async () => {
-		const error = await removeWork(id);
+		const error = await removeWork(workId);
 
 		if (error) {
 			setError(error);

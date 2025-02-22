@@ -12,7 +12,8 @@
 		max-width: none;
 		width: 760px;
 		height: 700px;
-		padding: 30px;
+		padding: 42px;
+		overflow-y: scroll;
 	}
 }
 
@@ -95,6 +96,7 @@
 
 .description {
 	@include font-face($secondary-font, 400);
+
 	text-align: start;
 	white-space: pre-wrap;
 }

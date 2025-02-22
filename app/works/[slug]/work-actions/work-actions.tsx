@@ -21,7 +21,7 @@ export const WorkActions = ({ work }: { work: Work }) => {
 	return (
 		<div className={styles.container}>
 			{isRemoveModalOpen && (
-				<RemoveWorkModal onClose={closeModalHandler} id={work.id} />
+				<RemoveWorkModal onClose={closeModalHandler} workId={work.id} />
 			)}
 			<MainButtonWrapper iconName="GrEdit">
 				<Link href={`/works/edit/${work.slug}`}>Изменить</Link>
