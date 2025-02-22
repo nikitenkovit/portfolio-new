@@ -31,3 +31,22 @@
 		max-width: 1140px;
 	}
 }
+
+.itemSkeleton {
+	width: 100%;
+	height: 53.76vw;
+	border-radius: 5px;
+
+	@media (min-width: $breakpoint-tablet) {
+		height: 148.02px;
+	}
+
+	@media (min-width: $breakpoint-770) {
+		height: 203.52px;
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+		height: 14.65vw;
+		border-radius: 10px;
+	}
+}
